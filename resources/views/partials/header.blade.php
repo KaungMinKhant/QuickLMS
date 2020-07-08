@@ -3,7 +3,7 @@
         <div class="navbar-header">
             <a href="{{ url('/admin/home') }}"
                class="navbar-brand">
-                @trans('global.global_title')
+                Ta Yoke Lay Ta Yoke Sar Thin Dan
             </a>
         </div>
         <a href="javascript:;"

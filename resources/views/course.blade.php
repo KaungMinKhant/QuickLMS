@@ -48,7 +48,7 @@
             @endif
         @else
             <a href="{{ route('auth.register') }}?redirect_url={{ route('courses.show', [$course->slug]) }}"
-               class="btn btn-primary">Buy course (${{ $course->price }})</a>
+               class="btn btn-primary">Buy course ({{ $course->price }} Kyats)</a>
         @endif
     </p>
 

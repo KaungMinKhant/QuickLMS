@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Auth;
  * @property string $title
  * @property string $slug
  * @property text $description
- * @property decimal $price
+ * @property integer $price
  * @property string $course_image
  * @property string $start_date
  * @property tinyInteger $published
