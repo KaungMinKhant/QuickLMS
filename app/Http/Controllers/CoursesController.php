@@ -22,7 +22,7 @@ class CoursesController extends Controller
     public function payment(Request $request)
     {
         $course = Course::findOrFail($request->get('course_id'));
-        $this->createStripeCharge($request);
+        //$this->createStripeCharge($request);
 
         $course->students()->attach(\Auth::id());
 

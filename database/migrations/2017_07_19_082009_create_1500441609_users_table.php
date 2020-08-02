@@ -19,7 +19,11 @@ class Create1500441609UsersTable extends Migration
                 $table->string('email');
                 $table->string('password');
                 $table->string('remember_token')->nullable();
-                
+                $table->string('father_name');
+                $table->string('nrc_number');
+                $table->date('date_of_birth');
+                $table->string('phone_number');
+                $table->string('address');
                 $table->timestamps();
                 
             });

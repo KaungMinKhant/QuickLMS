@@ -19,6 +19,16 @@
 <script src="{{ url('adminlte/js/app.min.js') }}"></script>
 <script>
     window._token = '{{ csrf_token() }}';
+    $("#datepicker").datepicker({
+        format: "yy/mm/dd"
+        , weekStart: 0
+        , calendarWeeks: true
+        , autoclose: true
+        , todayHighlight: true
+        , rtl: true
+        , orientation: "auto"
+    });
+
 </script>
 
 

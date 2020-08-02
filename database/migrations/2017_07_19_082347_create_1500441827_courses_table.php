@@ -22,10 +22,9 @@ class Create1500441827CoursesTable extends Migration
                 $table->string('course_image')->nullable();
                 $table->date('start_date')->nullable();
                 $table->tinyInteger('published')->nullable()->default(0);
-                
+                $table->string('register_link')->nullable();
                 $table->timestamps();
                 $table->softDeletes();
-
                 $table->index(['deleted_at']);
             });
         }

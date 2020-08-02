@@ -57,7 +57,7 @@
                     <div class="header_content d-flex flex-row align-items-center justify-content-start">
                         <div class="logo_container mr-auto">
                             <a href="#">
-                                <div class="logo_text">COC</div>
+                                <div class="logo_text">Zhuxin.Asia</div>
                             </a>
                         </div>
                         <nav class="main_nav_contaner">

@@ -193,7 +193,16 @@ Rating: {{ $course->rating }} / 5
                     <div class="sidebar_background"></div>
                     @if (\Auth::check())
                     @if ($course->students()->where('user_id', \Auth::id())->count() == 0)
-                    <div class="sidebar_top"><a href="{{ route('auth.register') }}?redirect_url={{ route('courses.show', [$course->slug]) }}">Buy course <br>{{ $course->price }} Kyats</a></div>
+                    <form action="{{ route('courses.payment') }}" method="POST">
+                        <input type="hidden" name="course_id" value="{{ $course->id }}" />
+                        <input type="hidden" name="amount" value="{{ $course->price * 100 }}" />
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-success">
+                                Buy Course
+                            </button>
+                        </div>
+                        {{ csrf_field() }}
+                    </form>
                     @endif
                     @else
                     <div class="sidebar_top"><a href="{{ route('auth.register') }}?redirect_url={{ route('courses.show', [$course->slug]) }}">Buy course <br>{{ $course->price }} Kyats</a></div>

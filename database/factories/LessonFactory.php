@@ -13,6 +13,7 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 $factory->define(App\Lesson::class, function (Faker\Generator $faker) {
+    $faker = Faker\Factory::create('en_US');
     $name = $faker->text(50);
     return [
         'title' => $name,

@@ -13,6 +13,7 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 $factory->define(App\Question::class, function (Faker\Generator $faker) {
+    $faker = Faker\Factory::create('en_US');
     return [
         'question' => $faker->text(50) . '?',
         'score' => 1,

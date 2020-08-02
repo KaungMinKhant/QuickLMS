@@ -13,6 +13,7 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 $factory->define(App\QuestionsOption::class, function (Faker\Generator $faker) {
+    $faker = Faker\Factory::create('en_US');
     return [
         'option_text' => $faker->text(50) . '?',
         'correct' => rand(0, 1),

@@ -13,6 +13,7 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 $factory->define(App\Test::class, function (Faker\Generator $faker) {
+    $faker = Faker\Factory::create('en_US');
     return [
         'title' => $faker->text(50),
         'published' => 1,

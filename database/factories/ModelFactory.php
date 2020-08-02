@@ -13,6 +13,7 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 $factory->define(App\User::class, function (Faker\Generator $faker) {
+    $faker = Faker\Factory::create('en_US');
     static $password;
 
     return [
@@ -20,5 +21,10 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'email' => $faker->unique()->safeEmail,
         'password' => $password ?: $password = bcrypt('secret'),
         'remember_token' => str_random(10),
+        'father_name' => $faker->name,
+        'nrc_number' => $faker->word,
+        'date_of_birth' => $faker->date($format = 'Y-m-d', $max = 'now'),
+        'phone_number' => $faker->phoneNumber,
+        'address' => $faker->address,
     ];
 });

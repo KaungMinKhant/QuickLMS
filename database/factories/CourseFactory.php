@@ -13,6 +13,7 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 $factory->define(App\Course::class, function (Faker\Generator $faker) {
+    $faker = Faker\Factory::create('en_US');
     $name = $faker->name;
     return [
         'title' => $name,
@@ -20,5 +21,6 @@ $factory->define(App\Course::class, function (Faker\Generator $faker) {
         'description' => $faker->text(),
         'price' => $faker->randomFloat(2, 0, 199),
         'published' => 1,
+        'register_link' => $faker->url,
     ];
 });

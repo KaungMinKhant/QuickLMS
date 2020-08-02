@@ -39,6 +39,48 @@
                             </div>
                         </div>
 
+                        
+
+                        <div class="form-group">
+                            <label for="father_name" class="col-md-4 control-label">Father Name</label>
+
+                            <div class="col-md-6">
+                                <input id="father-name" type="text" class="form-control" name="father_name" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="nrc_number" class="col-md-4 control-label">NRC Number</label>
+
+                            <div class="col-md-6">
+                                <input id="nrc-number" type="text" class="form-control" name="nrc_number" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="date_of_birth" class="col-md-4 control-label">Date of Birth</label>
+
+                            <div class="col-md-6">
+                                <input id="date-of-birth" type="date" class="form-control" name="date_of_birth" placeholder="2000-1-3(year-month-date)" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone_number" class="col-md-4 control-label">Phone Number</label>
+
+                            <div class="col-md-6">
+                                <input id="phone-number" type="text" class="form-control" name="phone_number" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="address" class="col-md-4 control-label">Address</label>
+
+                            <div class="col-md-6">
+                                <input id="address" type="text" class="form-control" name="address" required>
+                            </div>
+                        </div>
+
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                             <label for="password" class="col-md-4 control-label">Password</label>
 

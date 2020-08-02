@@ -7,7 +7,6 @@
         <div class="panel-heading">
             @lang('global.app_view')
         </div>
-
         <div class="panel-body">
             <div class="row">
                 <div class="col-md-6">
