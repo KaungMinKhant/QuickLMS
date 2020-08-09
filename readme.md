@@ -1,4 +1,4 @@
-## Laravel Learning Management System
+<!-- ## Laravel Learning Management System
 
 Simple mini-project created during live-coding sessions in 15 lessons. 
 [Watch them on YouTube](https://www.youtube.com/watch?v=8c107aufU9s&list=PLdXLsjL7A9k0NlUGL9M7ah9Fnvo3HybRl)
@@ -30,4 +30,4 @@ Please use and re-use however you want.
 - Follow our [Twitter](https://twitter.com/dailylaravel) and [Blog](https://laraveldaily.com)
 - Subscribe to our [newsletter with 20+ Laravel links every Thursday](http://laraveldaily.com/weekly-laravel-newsletter/)
 - Subscribe to our [YouTube channel Laravel Business](https://www.youtube.com/channel/UCTuplgOBi6tJIlesIboymGA)
-
+ -->
