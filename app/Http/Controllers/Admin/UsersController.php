@@ -8,9 +8,11 @@ use Illuminate\Support\Facades\Gate;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\StoreUsersRequest;
 use App\Http\Requests\Admin\UpdateUsersRequest;
+use App\Http\Controllers\Traits\FileUploadTrait;
 
 class UsersController extends Controller
 {
+    use FileUploadTrait;
     /**
      * Display a listing of User.
      *
@@ -43,6 +45,10 @@ class UsersController extends Controller
         return view('admin.users.create', compact('roles'));
     }
 
+    
+
+    
+
     /**
      * Store a newly created User in storage.
      *
@@ -54,6 +60,7 @@ class UsersController extends Controller
         if (! Gate::allows('user_create')) {
             return abort(401);
         }
+        $request=$this->saveFiles($request);
         $user = User::create($request->all());
         $user->role()->sync(array_filter((array)$request->input('role')));
 
@@ -159,6 +166,16 @@ class UsersController extends Controller
                 $entry->delete();
             }
         }
+    }
+
+    public function verify()
+    {
+        if (! Gate::allows('user_create')) {
+            return abort(401);
+        }
+        $roles = \App\Role::get()->pluck('title', 'id');
+
+        return view('admin.users.verify', compact('roles'));
     }
 
 }

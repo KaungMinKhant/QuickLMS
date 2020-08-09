@@ -76,16 +76,17 @@
 
                         <div class="col-lg-7 text-right" style="padding-top: 10px">
                             @if (Auth::check())
-                            <div style="color:white">
+                            <div style="color:black">
                                 Logged in as {{ Auth::user()->email }}
+                                your id is {{ Auth::user()->id }}
                                 <form action="{{ route('auth.logout') }}" method="post">
-                                    {{ csrf_field() }}
+                                    {!! csrf_field() !!}
                                     <input type="submit" value="Logout" class="btn btn-info">
                                 </form>
                             </div>
                             @else
                             <form action="{{ route('auth.login') }}" method="post">
-                                {{ csrf_field() }}
+                                {!! csrf_field() !!}
                                 <input type="email" name="email" placeholder="Email" />
                                 <input type="password" name="password" placeholder="Password" />
                                 <input type="submit" value="Login" class="btn btn-info">

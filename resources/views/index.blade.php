@@ -58,7 +58,7 @@
                 <!-- Course -->
                 <div class="col-lg-4 course_col">
                     <div class="course">
-                        <div class="course_image"><img src="{{ asset('uploads/thumb/' . $course->course_image) }}" alt=""></div>
+                        <div class="course_image"><img src="{{ asset('uploads/' . $course->course_image) }}" alt=""></div>
                         <div class="course_body">
                             <div class="course_title"><a href="{{ route('courses.show', [$course->slug]) }}">{{ $course->title }}</a></div>
                             {{-- <div class="course_info">

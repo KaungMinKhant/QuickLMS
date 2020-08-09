@@ -1,4 +1,5 @@
 <?php
+
 Route::get('/', 'HomeController@index');
 Route::get('course/{slug}', ['uses' => 'CoursesController@show', 'as' => 'courses.show']);
 Route::post('course/payment', ['uses' => 'CoursesController@payment', 'as' => 'courses.payment']);
@@ -34,6 +35,10 @@ Route::group(['middleware' => ['admin'], 'prefix' => 'admin', 'as' => 'admin.'],
     Route::post('roles_mass_destroy', ['uses' => 'Admin\RolesController@massDestroy', 'as' => 'roles.mass_destroy']);
     Route::resource('users', 'Admin\UsersController');
     Route::post('users_mass_destroy', ['uses' => 'Admin\UsersController@massDestroy', 'as' => 'users.mass_destroy']);
+    Route::post('users_verify', ['uses' => 'Admin\UsersController@verify', 'as' => 'users.verify']);
+    Route::get('users_verify', function () {
+        return View('admin/users/verify');
+    });
     Route::resource('courses', 'Admin\CoursesController');
     Route::post('courses_mass_destroy', ['uses' => 'Admin\CoursesController@massDestroy', 'as' => 'courses.mass_destroy']);
     Route::post('courses_restore/{id}', ['uses' => 'Admin\CoursesController@restore', 'as' => 'courses.restore']);

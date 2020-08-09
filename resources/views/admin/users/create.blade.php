@@ -2,7 +2,7 @@
 
 @section('content')
 <h3 class="page-title">@lang('global.users.title')</h3>
-{!! Form::open(['method' => 'POST', 'route' => ['admin.users.store']]) !!}
+{!! Form::open(['method' => 'POST', 'route' => ['admin.users.store'], 'files' => true,]) !!}
 
 <div class="panel panel-default">
     <div class="panel-heading">
@@ -95,7 +95,7 @@
                 @endif
             </div>
         </div>
-        
+
         <div class="row">
             <div class="col-xs-12 form-group">
                 {!! Form::label('Phone Number', 'Phone Number*', ['class' => 'control-label']) !!}
@@ -122,11 +122,38 @@
             </div>
         </div>
 
+        <div class="row">
+            <div class="col-xs-12 form-group">
+                {!! Form::label('profile_pic', 'Profile Picture', ['class' => 'control-label']) !!}
+                {!! Form::file('profile_pic', ['class' => 'form-control', 'style' => 'margin-top: 4px;']) !!}
+                {!! Form::hidden('profile_pic_max_size', 8) !!}
+                {!! Form::hidden('profile_pic_max_width', 4000) !!}
+                {!! Form::hidden('profile_pic_max_height', 4000) !!}
+                <p class="help-block"></p>
+                @if($errors->has('profile_pic'))
+                <p class="help-block">
+                    {{ $errors->first('profile_pic') }}
+                </p>
+                @endif
+            </div>
+        </div>
+
     </div>
 </div>
 
 {!! Form::submit(trans('global.app_save'), ['class' => 'btn btn-danger']) !!}
 {!! Form::close() !!}
+
+<form action="{{ route('courses.payment') }}" method="POST">
+    <input type="text" name="course_id" value="" />
+    <input type="text" name="user_id" value="" />
+    <div class="form-group">
+        <button type="submit" class="btn btn-success">
+            Verify
+        </button>
+    </div>
+    {{ csrf_field() }}
+</form>
 
 
 @stop

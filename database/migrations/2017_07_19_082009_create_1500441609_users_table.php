@@ -24,6 +24,7 @@ class Create1500441609UsersTable extends Migration
                 $table->date('date_of_birth');
                 $table->string('phone_number');
                 $table->string('address');
+                $table->string('profile_pic')->nullable();
                 $table->timestamps();
                 
             });

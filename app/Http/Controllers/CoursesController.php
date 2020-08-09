@@ -24,7 +24,7 @@ class CoursesController extends Controller
         $course = Course::findOrFail($request->get('course_id'));
         //$this->createStripeCharge($request);
 
-        $course->students()->attach(\Auth::id());
+        $course->students()->attach($request->get('user_id'));
 
         return redirect()->back()->with('success', 'Payment completed successfully.');
     }

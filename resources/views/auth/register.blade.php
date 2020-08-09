@@ -104,6 +104,14 @@
                         </div>
 
                         <div class="form-group">
+                            <label for="profile-pic" class="col-md-4 control-label">Profile Picture (အောင်လက်မှတ် ထုတ်ပေးမည်ဖြစ်သဖြင့် လိုင်စင်ပုံသာပေးပါရန်)</label>
+
+                            <div class="col-md-6">
+                                <input id="profile-pic" type="file" class="form-control" name="profile_pic">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
                                     Register

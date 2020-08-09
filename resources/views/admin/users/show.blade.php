@@ -20,6 +20,10 @@
                             <td>{{ $user->email }}</td>
                         </tr>
                         <tr>
+                            <th>Profile Picture</th>
+                            <td>@if($user->profile_pic)<a href="{{ asset('uploads/' . $user->profile_pic) }}" target="_blank"><img src="{{ asset('uploads/thumb/' . $user->profile_pic) }}"/></a>@endif</td>
+                        </tr>
+                        <tr>
                             <th>@lang('global.users.fields.role')</th>
                             <td>
                                 @foreach ($user->role as $singleRole)

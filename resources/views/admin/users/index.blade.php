@@ -6,7 +6,9 @@
 @can('user_create')
 <p>
     <a href="{{ route('admin.users.create') }}" class="btn btn-success">@lang('global.app_add_new')</a>
-
+</p>
+<p>
+    <a href="{{ route('admin.users.verify') }}" class="btn btn-success">Verify Users</a>
 </p>
 @endcan
 

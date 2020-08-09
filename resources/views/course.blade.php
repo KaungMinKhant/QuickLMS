@@ -193,61 +193,80 @@ Rating: {{ $course->rating }} / 5
                     <div class="sidebar_background"></div>
                     @if (\Auth::check())
                     @if ($course->students()->where('user_id', \Auth::id())->count() == 0)
-                    <form action="{{ route('courses.payment') }}" method="POST">
-                        <input type="hidden" name="course_id" value="{{ $course->id }}" />
-                        <input type="hidden" name="amount" value="{{ $course->price * 100 }}" />
-                        <div class="form-group">
-                            <button type="submit" class="btn btn-success">
-                                Buy Course
-                            </button>
-                        </div>
-                        {{ csrf_field() }}
-                    </form>
+                    {{-- <form action="{{ route('courses.payment') }}" method="POST">
+                    <input type="hidden" name="course_id" value="{{ $course->id }}" />
+                    <input type="hidden" name="amount" value="{{ $course->price * 100 }}" />
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-success">
+                            Buy Course
+                        </button>
+                    </div>
+                    {{ csrf_field() }}
+                    </form> --}}
+                    <div class="sidebar_top"><a href="{{ $course->register_link }}?redirect_url={{ route('courses.show', [$course->slug]) }}">Buy course <br>{{ $course->price }} Kyats</a></div>
+                   
                     @endif
                     @else
                     <div class="sidebar_top"><a href="{{ route('auth.register') }}?redirect_url={{ route('courses.show', [$course->slug]) }}">Buy course <br>{{ $course->price }} Kyats</a></div>
                     @endif
                     <div class="sidebar_content">
-
+                        
+                        @if($purchased_course)
+                         <div class="sidebar_section features">
+                            <div class="sidebar_title">သင်တန်းတက်နေပါတယ်.</div>    
+                        </div>
+                        @elseif(Auth::check())
                         <!-- Features -->
                         <div class="sidebar_section features">
-                            <div class="sidebar_title">Course Features</div>
+                            <div class="sidebar_title">သင်တန်းအပ်နည်း</div>
                             <div class="features_content">
                                 <ul class="features_list">
 
                                     <!-- Feature -->
+
                                     <li class="d-flex flex-row align-items-start justify-content-start">
-                                        <div class="feature_title"><i class="fa fa-clock-o" aria-hidden="true"></i><span>Duration</span></div>
-                                        <div class="feature_text ml-auto">2 weeks</div>
+                                        <div class="feature_title"><i class="fa fa-clock-o" aria-hidden="true"></i><span>သင်တန်းကြေးမှာ {{$course->price}} ကျပ်ဖြစ်ပါသည်။ သင်တန်းအပ်ရန်အတွက် အောက်က Account တစ်ခုခုကို ပိုက်ဆံလွှဲပါ။ ထို့နောက် ငွေလွှဲထားသော ပြေစာကိုဓာတ်ပုံရိုက်ယူထားပါ။</span></div>
+                                        
+                                    </li>
+                                    <li class="d-flex flex-row align-items-start justify-content-start">
+                                        <div class="feature_title"><i class="fa fa-clock-o" aria-hidden="true"></i><span>KBZ Bank</span></div>
+                                        <div class="feature_text ml-auto">something</div>
+                                    </li>
+
+
+
+                                    <!-- Feature -->
+                                    <li class="d-flex flex-row align-items-start justify-content-start">
+                                        <div class="feature_title"><i class="fa fa-bell" aria-hidden="true"></i><span>CB Bank</span></div>
+                                        <div class="feature_text ml-auto">something</div>
                                     </li>
 
                                     <!-- Feature -->
                                     <li class="d-flex flex-row align-items-start justify-content-start">
-                                        <div class="feature_title"><i class="fa fa-bell" aria-hidden="true"></i><span>Lectures</span></div>
-                                        <div class="feature_text ml-auto">10</div>
+                                        <div class="feature_title"><i class="fa fa-id-badge" aria-hidden="true"></i><span>KBZ Pay </span></div>
+                                        <div class="feature_text ml-auto">something</div>
                                     </li>
 
                                     <!-- Feature -->
                                     <li class="d-flex flex-row align-items-start justify-content-start">
-                                        <div class="feature_title"><i class="fa fa-id-badge" aria-hidden="true"></i><span>Quizzes</span></div>
-                                        <div class="feature_text ml-auto">3</div>
+                                        <div class="feature_title"><i class="fa fa-thumbs-up" aria-hidden="true"></i><span>Wave Money</span></div>
+                                        <div class="feature_text ml-auto">something</div>
                                     </li>
 
                                     <!-- Feature -->
                                     <li class="d-flex flex-row align-items-start justify-content-start">
-                                        <div class="feature_title"><i class="fa fa-thumbs-up" aria-hidden="true"></i><span>Pass Percentage</span></div>
-                                        <div class="feature_text ml-auto">60</div>
-                                    </li>
-
-                                    <!-- Feature -->
-                                    <li class="d-flex flex-row align-items-start justify-content-start">
-                                        <div class="feature_title"><i class="fa fa-thumbs-down" aria-hidden="true"></i><span>Max Retakes</span></div>
-                                        <div class="feature_text ml-auto">5</div>
+                                        <div class="feature_title"><i class="fa fa-thumbs-down" aria-hidden="true"></i><span>သင့်ရဲ့ ကျောင်းသားအမှတ်က {{ Auth::user()->id }} ဖြစ်ပါတယ်။ အခု သင်တန်းအမှတ်က {{$course->id}} ဖြစ်ပါတယ်။ အပေါ်မှာရှိတဲ့ Buy Course ကို နှိပ်ပြီး ကျောင်းသားအမှတ်၊ သင်တန်းအမှတ်၊ ငွေရှင်းပြေစာတို့ကို ဖြည့်သွင်းပါ။</span></div>
+                                       
                                     </li>
                                 </ul>
                             </div>
                         </div>
-
+                        @else
+                        <div class="sidebar_section features">
+                            <div class="sidebar_title">Buy Course ကို နှိပ်ပြီး register အရင်လုပ်ပါ</div>
+                            
+                        </div>
+                        @endif
                     </div>
                 </div>
             </div>
