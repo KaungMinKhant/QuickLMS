@@ -31,3 +31,12 @@ Please use and re-use however you want.
 - Subscribe to our [newsletter with 20+ Laravel links every Thursday](http://laraveldaily.com/weekly-laravel-newsletter/)
 - Subscribe to our [YouTube channel Laravel Business](https://www.youtube.com/channel/UCTuplgOBi6tJIlesIboymGA)
  -->
+
+ 1. Copy all the texts from .env.example and save it to .env in root folder. Configure your database in .env
+
+ 2. Open a terminal and run composer install
+ 3. run php artisan key:generate
+ 4. run php artisan migrate --seed
+ 5. run php artisan serve
+
+ Should be okay LoL
