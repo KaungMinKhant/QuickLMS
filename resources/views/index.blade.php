@@ -2,6 +2,19 @@
 
 @section('main')
 
+<style>
+.course_color{
+    background: #3d866b;
+}
+body{
+    background: #3d866b;
+}
+
+.row{
+    
+}
+</style>
+
 @if (!is_null($purchased_courses))
 <h3>My courses</h3>
 <div class="row">
@@ -72,7 +85,7 @@
                             </div>
                         </div>
                         <div class="course_footer d-flex flex-row align-items-center justify-content-start">
-                            <div class="course_mark course_free trans_200"><a href="{{ route('courses.show', [$course->slug]) }}">Join</a></div>
+                            <div class="course_mark course_free trans_200 course_color"><a href="{{ route('courses.show', [$course->slug]) }}">Join</a></div>
                         </div>
                     </div>
                 </div>

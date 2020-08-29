@@ -75,32 +75,12 @@
             </li>
             @endcan
             
-            @can('question_access')
-            <li class="{{ $request->segment(2) == 'questions' ? 'active' : '' }}">
-                <a href="{{ route('admin.questions.index') }}">
-                    <i class="fa fa-question"></i>
-                    <span class="title">@lang('global.questions.title')</span>
-                </a>
-            </li>
-            @endcan
-            
-            @can('questions_option_access')
-            <li class="{{ $request->segment(2) == 'questions_options' ? 'active' : '' }}">
-                <a href="{{ route('admin.questions_options.index') }}">
+           <li class="{{ $request->segment(2) == 'certificates' ? 'active' : '' }}">
+                <a href="{{ route('certificate.index') }}">
                     <i class="fa fa-gears"></i>
-                    <span class="title">@lang('global.questions-options.title')</span>
+                    <span class="title">Certificates</span>
                 </a>
             </li>
-            @endcan
-            
-            @can('test_access')
-            <li class="{{ $request->segment(2) == 'tests' ? 'active' : '' }}">
-                <a href="{{ route('admin.tests.index') }}">
-                    <i class="fa fa-gears"></i>
-                    <span class="title">@lang('global.tests.title')</span>
-                </a>
-            </li>
-            @endcan
             
 
             
