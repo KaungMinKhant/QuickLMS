@@ -57,7 +57,7 @@
                     <div class="header_content d-flex flex-row align-items-center justify-content-start">
                         <div class="logo_container mr-auto">
                             <a href="#">
-                                <div class="logo_text">Zhuxin.Asia</div>
+                                <div class="logo_text">Zhuxin</div>
                             </a>
                         </div>
                         <nav class="main_nav_contaner">
@@ -65,6 +65,7 @@
                                 <li class="active"><a href="/">Home</a></li>
                                 <li><a href="courses.html">Courses</a></li>
                                 <li><a href="contact.html">Contact</a></li>
+                                <li><a href="" data-toggle="modal" data-target="#modalLoginForm">Login</a></li>
                             </ul>
                         </nav>
 
@@ -74,7 +75,7 @@
 
 
 
-                        <div class="col-lg-7 text-right" style="padding-top: 10px">
+                        <!-- <div class="col-lg-7 text-right" style="padding-top: 10px">
                             @if (Auth::check())
                             <div style="color:black">
                                 Logged in as {{ Auth::user()->email }}
@@ -92,8 +93,10 @@
                                 <input type="submit" value="Login" class="btn btn-info">
                             </form>
                             @endif
-                        </div>
-
+                        </div>-->
+						<div class="hamburger menu_mm">
+							<i class="fa fa-bars menu_mm" aria-hidden="true"></i>
+						</div>
 
 
                     </div>
@@ -102,6 +105,33 @@
         </div>
     </div>
 
+    <div class="modal fade" id="modalLoginForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  		<div class="modal-dialog" role="document">
+    		<div class="modal-content"><br><br><br><br><br>
+      			<div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Be part of Zhuxin</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="email" id="defaultForm-email" class="form-control validate">
+          <label data-error="wrong" data-success="right" for="defaultForm-email">Your email</label>
+        </div>
+
+        <div class="md-form mb-4">
+          <input type="password" id="defaultForm-pass" class="form-control validate">
+          <label data-error="wrong" data-success="right" for="defaultForm-pass">Your password</label>
+        </div>
+
+      </div>
+      <div class="modal-footer d-flex justify-content-center">
+        <button class="btn btn-default">Login</button>
+      </div>
+    </div>
+  </div>
+</div>
     <!-- End Of Header -->
 
     <!-- Menu -->
@@ -125,6 +155,7 @@
                 <li class="menu_mm"><a href="/">Home</a></li>
                 <li class="menu_mm"><a href="courses.html">Courses</a></li>
                 <li class="menu_mm"><a href="contact.html">Contact</a></li>
+				<li><a href="" data-toggle="modal" data-target="#modalLoginForm">Login</a></li>
             </ul>
         </nav>
         <div class="menu_extra">
