@@ -94,9 +94,9 @@
                             </form>
                             @endif
                         </div>-->
-						<div class="hamburger menu_mm">
-							<i class="fa fa-bars menu_mm" aria-hidden="true"></i>
-						</div>
+                        <div class="hamburger menu_mm">
+                            <i class="fa fa-bars menu_mm" aria-hidden="true"></i>
+                        </div>
 
 
                     </div>
@@ -106,32 +106,35 @@
     </div>
 
     <div class="modal fade" id="modalLoginForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  		<div class="modal-dialog" role="document">
-    		<div class="modal-content"><br><br><br><br><br>
-      			<div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">Be part of Zhuxin</h4>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body mx-3">
-        <div class="md-form mb-5">
-          <input type="email" id="defaultForm-email" class="form-control validate">
-          <label data-error="wrong" data-success="right" for="defaultForm-email">Your email</label>
-        </div>
+        <form action="{{ route('auth.login') }}" method="post">
+            {!! csrf_field() !!}
+            <div class="modal-dialog" role="document">
+                <div class="modal-content"><br><br><br><br><br>
+                    <div class="modal-header text-center">
+                        <h4 class="modal-title w-100 font-weight-bold">Be part of Zhuxin</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body mx-3">
+                        <div class="md-form mb-5">
+                            <input type="email" name = "email" id="defaultForm-email" class="form-control validate">
+                            <label data-error="wrong" data-success="right" for="defaultForm-email">Email</label>
+                        </div>
 
-        <div class="md-form mb-4">
-          <input type="password" id="defaultForm-pass" class="form-control validate">
-          <label data-error="wrong" data-success="right" for="defaultForm-pass">Your password</label>
-        </div>
+                        <div class="md-form mb-4">
+                            <input type="password" name = "password" id="defaultForm-pass" class="form-control validate">
+                            <label data-error="wrong" data-success="right" for="defaultForm-pass">Password</label>
+                        </div>
 
-      </div>
-      <div class="modal-footer d-flex justify-content-center">
-        <button class="btn btn-default">Login</button>
-      </div>
+                    </div>
+                    <div class="modal-footer d-flex justify-content-center">
+                        <input type="submit" value="Login" class="btn btn-default">
+                    </div>
+                </div>
+            </div>
+        </form>
     </div>
-  </div>
-</div>
     <!-- End Of Header -->
 
     <!-- Menu -->
@@ -155,7 +158,7 @@
                 <li class="menu_mm"><a href="/">Home</a></li>
                 <li class="menu_mm"><a href="courses.html">Courses</a></li>
                 <li class="menu_mm"><a href="contact.html">Contact</a></li>
-				<li><a href="" data-toggle="modal" data-target="#modalLoginForm">Login</a></li>
+                <li><a href="" data-toggle="modal" data-target="#modalLoginForm">Login</a></li>
             </ul>
         </nav>
         <div class="menu_extra">
