@@ -37,6 +37,11 @@
 2. Body and some general stuff
 *********************************/
 
+.btn-auth{
+	background-color: #3d866b;
+	color: white;
+}
+
 *
 {
 	margin: 0;

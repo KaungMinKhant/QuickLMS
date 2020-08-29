@@ -63,14 +63,28 @@
                         <nav class="main_nav_contaner">
                             <ul class="main_nav">
                                 <li class="active"><a href="/">Home</a></li>
-                                <li><a href="courses.html">Courses</a></li>
+                                <li><a href="{{ route('courses.view') }}">Courses</a></li>
                                 <li><a href="contact.html">Contact</a></li>
-                                <li><a href="" data-toggle="modal" data-target="#modalLoginForm">Login</a></li>
+                                <li>
+                                    @if (Auth::check())
+
+                                    <a>
+                                        <form action="{{ route('auth.logout') }}" method="post">
+                                            {!! csrf_field() !!}
+                                            <input type="submit" value="Logout" class="btn btn-auth">
+                                        </form>
+                                    </a>
+
+
+                                    @else
+                                    <a href="" data-toggle="modal" data-target="#modalLoginForm">Login</a>
+                                    @endif
+                                </li>
                             </ul>
                         </nav>
 
 
-
+-
                         <!-- Hamburger -->
 
 
@@ -94,7 +108,7 @@
                             </form>
                             @endif
                         </div>-->
-						
+
                         <div class="hamburger menu_mm">
                             <i class="fa fa-bars menu_mm" aria-hidden="true"></i>
                         </div>
@@ -119,12 +133,12 @@
                     </div>
                     <div class="modal-body mx-3">
                         <div class="md-form mb-5">
-                            <input type="email" name = "email" id="defaultForm-email" class="form-control validate">
+                            <input type="email" name="email" id="defaultForm-email" class="form-control validate">
                             <label data-error="wrong" data-success="right" for="defaultForm-email">Email</label>
                         </div>
 
                         <div class="md-form mb-4">
-                            <input type="password" name = "password" id="defaultForm-pass" class="form-control validate">
+                            <input type="password" name="password" id="defaultForm-pass" class="form-control validate">
                             <label data-error="wrong" data-success="right" for="defaultForm-pass">Password</label>
                         </div>
 
@@ -157,9 +171,17 @@
         <nav class="menu_nav">
             <ul class="menu_mm">
                 <li class="menu_mm"><a href="/">Home</a></li>
-                <li class="menu_mm"><a href="courses.html">Courses</a></li>
+                <li class="menu_mm"><a href="{{ route('courses.view') }}">Courses</a></li>
                 <li class="menu_mm"><a href="contact.html">Contact</a></li>
+                @if (Auth::check())
+
+                <form action="{{ route('auth.logout') }}" method="post">
+                    {!! csrf_field() !!}
+                    <input type="submit" value="Logout" class="btn btn-info">
+                </form>
+                @else
                 <li><a href="" data-toggle="modal" data-target="#modalLoginForm">Login</a></li>
+                @endif
             </ul>
         </nav>
         <div class="menu_extra">
