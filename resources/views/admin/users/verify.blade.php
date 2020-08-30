@@ -1,3 +1,6 @@
+@extends('layouts.app')
+
+@section('content')
 <form action="{{ route('courses.payment') }}" method="POST">
     <p>Course Id</p>
     <input type="text" name="course_id" value="" />
@@ -10,3 +13,4 @@
     </div>
     {{ csrf_field() }}
 </form>
+@endsection
