@@ -57,7 +57,11 @@ class CertificateController extends Controller
      */
     public function show($id)
     {
-        //
+        
+        
+        $certificate = Certificate::findOrFail($id);
+
+        return view('certificate.show', compact('certificate'));
     }
 
     /**
