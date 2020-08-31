@@ -58,34 +58,15 @@
 @endif
 
 
-<div class="row">
-    <!-- Home Background -->
-    <div class="home">
-        <div class="home_background" style="background-image: url(/images/index_background.jpg);"></div>
-        <div class="home_content">
-            <div class="container">
-                <div class="row">
-                    <div class="col text-center">
-                        <h1 class="home_title">Welcome back</h1>
-                        <div class="home_button trans_200"><a href="#">get started</a></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- End of Home Background -->
-
     <div class="courses">
-        <div class="courses_background"></div>
         <div class="container">
             <div class="row">
                 <div class="col">
                     <h2 class="section_title text-center">Courses</h2>
                 </div>
             </div>
-            <div class="row courses_row">
+            <!-- <div class="row courses_row">
                 @foreach($courses as $course)
-                <!-- Course -->
                 <div class="col-lg-4 course_col">
                     <div class="course">
                         <div class="course_image"><img src="{{ asset('uploads/' . $course->course_image) }}" alt=""></div>
@@ -106,6 +87,54 @@
                         </div>
                     </div>
                 </div>
+                @endforeach
+            </div> -->
+            <div class="row courses_row">
+                @foreach($courses as $course)
+                <!-- Course -->
+                <!--<div class="col-lg-4 course_col">
+                    <div class="course">
+                        <div class="course_image"><img src="{{ asset('uploads/' . $course->course_image) }}" alt=""></div>
+                        <div class="course_body">
+                            <div class="course_title"><a href="{{ route('courses.show', [$course->slug]) }}">{{ $course->title }}</a></div>
+                            {{-- <div class="course_info">
+                                <ul>
+                                    <li><a href="instructors.html">Teacher name</a></li>
+                                    <li><a href="#">Chinese</a></li>
+                                </ul>
+                            </div> --}}
+                            <div class="course_text">
+                                <p>{{ $course->description }}</p>
+                            </div>
+                        </div>
+                        <div class="course_footer d-flex flex-row align-items-center justify-content-start">
+                            <div class="course_mark course_free trans_200 course_color"><a href="{{ route('courses.show', [$course->slug]) }}">Join</a></div>
+                        </div>
+                    </div>
+                </div>-->
+                <div class="col-lg-4  card" style="padding: 10px; border:0;">
+                    <img class="card-img-top" src="{{ asset('uploads/' . $course->course_image) }}" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title"><a href="{{ route('courses.show', [$course->slug]) }}">{{ $course->title }}</a> </h5>
+                        <p class="card-text">
+                        {{-- <div class="course_info">
+                            <ul>
+                                <li><a href="instructors.html">Teacher name</a></li>
+                                <li><a href="#">Chinese</a></li>
+                            </ul>
+                        </div> --}}
+                        <div class="course_text">
+                            <p>{{ $course->description }}</p>
+                        </div>
+                        </p>
+                    </div>
+                    <div class="course_footer d-flex flex-row align-items-center justify-content-start">
+                        <div class="course_mark course_free trans_200 course_color"><a href="{{ route('courses.show', [$course->slug]) }}">Join</a></div>
+                    </div>
+                </div>
+                @if($loop -> iteration == 3)
+                @break
+                @endif
                 @endforeach
             </div>
         </div>

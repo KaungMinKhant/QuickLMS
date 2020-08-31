@@ -15,6 +15,7 @@
 
 </style>
 
+<!--
 @if (!is_null($purchased_courses))
 <h3>My courses</h3>
 <div class="row">
@@ -39,7 +40,7 @@
 <hr />
 
 @endif
-
+-->
 
 <div class="row">
     <!-- Home Background -->
@@ -69,7 +70,7 @@
             <div class="row courses_row">
                 @foreach($courses as $course)
                 <!-- Course -->
-                <div class="col-lg-4 course_col">
+                <!--<div class="col-lg-4 course_col">
                     <div class="course">
                         <div class="course_image"><img src="{{ asset('uploads/' . $course->course_image) }}" alt=""></div>
                         <div class="course_body">
@@ -87,6 +88,26 @@
                         <div class="course_footer d-flex flex-row align-items-center justify-content-start">
                             <div class="course_mark course_free trans_200 course_color"><a href="{{ route('courses.show', [$course->slug]) }}">Join</a></div>
                         </div>
+                    </div>
+                </div>-->
+                <div class="col-lg-4  card" style="padding: 10px; border:0;">
+                    <img class="card-img-top" src="{{ asset('uploads/' . $course->course_image) }}" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title"><a href="{{ route('courses.show', [$course->slug]) }}">{{ $course->title }}</a> </h5>
+                        <p class="card-text">
+                        {{-- <div class="course_info">
+                            <ul>
+                                <li><a href="instructors.html">Teacher name</a></li>
+                                <li><a href="#">Chinese</a></li>
+                            </ul>
+                        </div> --}}
+                        <div class="course_text">
+                            <p>{{ $course->description }}</p>
+                        </div>
+                        </p>
+                    </div>
+                    <div class="course_footer d-flex flex-row align-items-center justify-content-start">
+                        <div class="course_mark course_free trans_200 course_color"><a href="{{ route('courses.show', [$course->slug]) }}">Join</a></div>
                     </div>
                 </div>
                 @if($loop -> iteration == 3)
