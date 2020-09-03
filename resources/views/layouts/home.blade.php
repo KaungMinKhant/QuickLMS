@@ -84,7 +84,7 @@
                         </nav>
 
 
--
+                        -
                         <!-- Hamburger -->
 
 
@@ -251,6 +251,20 @@
     <script src="/plugins/progressbar/progressbar.min.js"></script>
     <script src="/js/custom.js"></script>
     <script src="/js/course.js"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-168010158-2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-168010158-2');
+
+    </script>
+
 </body>
 
 </html>

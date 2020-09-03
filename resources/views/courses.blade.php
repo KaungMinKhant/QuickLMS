@@ -132,9 +132,6 @@
                         <div class="course_mark course_free trans_200 course_color"><a href="{{ route('courses.show', [$course->slug]) }}">Join</a></div>
                     </div>
                 </div>
-                @if($loop -> iteration == 3)
-                @break
-                @endif
                 @endforeach
             </div>
         </div>
