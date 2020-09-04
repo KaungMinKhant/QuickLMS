@@ -7,6 +7,7 @@
 
 
 <body class="hold-transition skin-blue sidebar-mini">
+<script id="5f525d4cd1b0b52cabdf8af4" src="https://dashboard.chatfuel.com/integration/fb-entry-point.js" async defer></script>
 
 <div id="wrapper">
 
