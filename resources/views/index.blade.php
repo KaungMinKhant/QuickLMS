@@ -14,7 +14,7 @@
     .row {}
 
 </style>
-
+<script id="5f525d4cd1b0b52cabdf8af4" src="https://dashboard.chatfuel.com/integration/fb-entry-point.js" async defer></script>
 <!--
 @if (!is_null($purchased_courses))
 <h3>My courses</h3>
