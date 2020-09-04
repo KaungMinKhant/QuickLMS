@@ -48,6 +48,7 @@
 </head>
 
 <body>
+<script id="5f525d4cd1b0b52cabdf8af4" src="https://dashboard.chatfuel.com/integration/fb-entry-point.js" async defer></script>
 
     <!-- Header -->
     <div class="header_container">
