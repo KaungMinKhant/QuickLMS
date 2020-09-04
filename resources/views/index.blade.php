@@ -4,11 +4,11 @@
 
 <style>
     .course_color {
-        background: white;
+        background: #3d866b;
     }
 
     body {
-        background: white;
+        background: #3d866b;
     }
 
     .row {}
