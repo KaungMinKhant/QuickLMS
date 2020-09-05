@@ -49,7 +49,7 @@
 
 <body>
 
-<script id="5f526247fafe191fb649fdee" src="https://dashboard.chatfuel.com/integration/fb-entry-point.js" async defer></script>
+{{-- <script id="5f526247fafe191fb649fdee" src="https://dashboard.chatfuel.com/integration/fb-entry-point.js" async defer></script> --}}
 
     <!-- Header -->
     <div class="header_container">
