@@ -27,6 +27,7 @@ trait FileUploadTrait
                     $filename = time() . '-' . $request->file($key)->getClientOriginalName();
                     $file     = $request->file($key);
                     $image    = Image::make($file);
+                    /*hi*/
                     if (! file_exists(public_path('uploads/thumb'))) {
                         mkdir(public_path('uploads/thumb'), 0777, true);
                     }
