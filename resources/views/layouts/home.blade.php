@@ -66,7 +66,6 @@
                             <ul class="main_nav">
                                 <li class="active"><a href="/">Home</a></li>
                                 <li><a href="{{ route('courses.view') }}">Courses</a></li>
-                                <li><a href="contact.html">Contact</a></li>
                                 <li>
                                     @if (Auth::check())
 
@@ -128,7 +127,9 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content"><br><br><br><br><br>
                     <div class="modal-header text-center">
-                        <h4 class="modal-title w-100 font-weight-bold">Be part of Zhuxin</h4>
+                        <h4 class="modal-title w-100 font-weight-bold"
+                            style="background: #97CA57;"
+                        >Be part of Zhuxin</h4>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -166,7 +167,6 @@
             <ul class="menu_mm">
                 <li class="menu_mm"><a href="/">Home</a></li>
                 <li class="menu_mm"><a href="{{ route('courses.view') }}">Courses</a></li>
-                <li class="menu_mm"><a href="contact.html">Contact</a></li>
                 @if (Auth::check())
 
                 <form action="{{ route('auth.logout') }}" method="post">

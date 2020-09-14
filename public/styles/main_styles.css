@@ -672,7 +672,7 @@ section
 }
 .hamburger:hover i
 {
-	color: #2e21df;
+	color: #97CA57;
 }
 
 /*********************************
@@ -956,7 +956,7 @@ section
 {
 	width: 225px;
 	height: 43px;
-	background: #2e21df;
+	background: #97CA57 ;
 	text-align: center;
 	border-radius: 3px;
 	margin-left: auto;
@@ -966,6 +966,7 @@ section
 .home_button:hover
 {
 	box-shadow: 0px 10px 40px rgba(0,0,0,0.3);
+	color: #a5a5a5;
 }
 .home_button a
 {
@@ -1495,7 +1496,7 @@ section
 {
 	width: 100%;
 	height: 43px;
-	background: #2e21df;
+	background: #97CA57 ;
 	color: #FFFFFF;
 	text-transform: uppercase;
 	letter-spacing: 0.3em;
@@ -2158,4 +2159,42 @@ section
 .footer_social ul li a i:hover
 {
 	color: rgba(255,255,255,1);
+}
+
+.course_color {
+	background: #ffffff;
+}
+
+body {
+	background: #ffffff;
+}
+
+.row {
+	margin: 0;
+}
+.home {
+	margin: 0;
+	height: 500px;
+}
+.courses{
+	background: #97CA57 ;
+}
+
+.join_button{
+	background: #97CA57 ;
+	width: 75px;
+	color: #FFFFFF;
+}
+
+.join_button:hover{
+	background: #29b161 ;
+	width: 77px;
+	color: #FFFFFF;
+	-webkit-box-shadow: inset -4px 11px 17px -14px rgba(0,0,0,0.75);
+	-moz-box-shadow: inset -4px 11px 17px -14px rgba(0,0,0,0.75);
+	box-shadow: inset -4px 11px 17px -14px rgba(0,0,0,0.75);
+}
+
+.card_design{
+	border-radius: 10px;;
 }

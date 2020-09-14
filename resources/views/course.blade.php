@@ -4,42 +4,18 @@
 
 {{-- <h2>{{ $course->title }}</h2> --}}
 
-@if ($purchased_course)
-Rating: {{ $course->rating }} / 5
-<br />
-<b>Rate the course:</b>
-<br />
-<form action="{{ route('courses.rating', [$course->id]) }}" method="post">
-    {{ csrf_field() }}
-    <select name="rating">
-        <option value="1">1 - Awful</option>
-        <option value="2">2 - Not too good</option>
-        <option value="3">3 - Average</option>
-        <option value="4" selected>4 - Quite good</option>
-        <option value="5">5 - Awesome!</option>
-    </select>
-    <input type="submit" value="Rate" />
-</form>
-<hr />
-@endif
 
 {{-- <p>{{ $course->description }}</p> --}}
 
 <!-- Home -->
-<div class="home">
-    <div class="breadcrumbs_container">
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                    <ul class="breadcrumbs_list d-flex flex-row align-items-center justify-content-start">
-                        <li><a href="/">home</a></li>
-                        <li><a href="courses.html">courses</a></li>
-                        <li><a href="#">{{ $course->title }}</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
+<div class="home" style="height:50px;">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumbs_list breadcrumb"  style="background: #A1E756 ;">
+                    <li><a href="/">home</a></li>
+                    <li><a href="courses.html">courses</a></li>
+                    <li><a href="#">{{ $course->title }}</a></li>
+        </ol>
+    </nav>
 </div>
 <!-- End of Home -->
 
@@ -51,13 +27,36 @@ Rating: {{ $course->rating }} / 5
         <div class="row">
             <div class="col">
                 <div class="intro_container d-flex flex-column align-items-start justify-content-end">
-                    <div class="intro_content">
-                        <div class="intro_title">{{ $course->title }}</div>
+                    <div class="intro_content" style="width:100%;">
+                        @if ($purchased_course)
+                        <div class="intro_title" >{{ $course->title }} 
+                            <span class="badge badge-secondary"> Rating: {{ $course->rating }} / 5</span>
+                        </div>
                         <p>Price: {{ $course -> price }} Kyats</p>
-                        <!-- <div class="intro_meta">
-								<div class="intro_image"><img src="images/member_0.jpg" alt=""></div>
-								<div class="intro_instructors"><a href="instructors.html">Teacher name</a></span></div>
-							</div> -->
+                        <hr>
+                        
+                            
+                            <!-- <div class="container">
+                            <div class="row">
+                            <div class="d-flex flex-column align-items-start justify-content-Center">
+                            <b>Rate the course:</b>
+                            <form action="{{ route('courses.rating', [$course->id]) }}" method="post">
+                            {{ csrf_field() }}
+                            <select name="rating">
+                            <option value="1">1 - Awful</option>
+                            <option value="2">2 - Not too good</option>
+                            <option value="3">3 - Average</option>
+                            <option value="4" selected>4 - Quite good</option>
+                            <option value="5">5 - Awesome!</option>
+                            </select>
+                            <input type="submit" value="Rate" />
+                            </form>
+                            </div>
+                            </div>
+                            </div> -->
+
+                            @endif
+
                     </div>
                 </div>
             </div>
@@ -68,18 +67,17 @@ Rating: {{ $course->rating }} / 5
 
 <!-- Course -->
 <div class="course">
-    <div class="course_top"></div>
-    <div class="container">
+    <div class="container" style="width:83%;">
 
         <div class="row row-lg-eq-height">
 
             <!-- Panels -->
-            <div class="col-lg-7">
+            <div class="col-lg-6">
                 <div class="tab_panels">
 
                     <!-- Tabs -->
                     <div class="course_tabs_container">
-                        <div class="container">
+                        <div class="container" >
                             <div class="row">
                                 <div class="col-lg-12">
                                     <div class="tabs d-flex flex-row align-items-center justify-content-start">
@@ -94,7 +92,7 @@ Rating: {{ $course->rating }} / 5
                     </div>
 
                     <!-- Description -->
-                    <div class="tab_panel description active">
+                    <div class="tab_panel description active" >
                         <div class="panel_title">About this course</div>
                         <div class="panel_text">
                             <p>{{$course -> description }}</p>
@@ -196,18 +194,18 @@ Rating: {{ $course->rating }} / 5
                     {{-- <form action="{{ route('courses.payment') }}" method="POST">
                     <input type="hidden" name="course_id" value="{{ $course->id }}" />
                     <input type="hidden" name="amount" value="{{ $course->price * 100 }}" />
-                    <div class="form-group">
-                        <button type="submit" class="btn btn-success">
+                    <div class="form-group" style="background: #A1E756 ;">
+                        <button type="submit" class="btn btn-success" style="background: #A1E756 ;">
                             Buy Course
                         </button>
                     </div>
                     {{ csrf_field() }}
                     </form> --}}
-                    <div class="sidebar_top"><a href="{{ $course->register_link }}?redirect_url={{ route('courses.show', [$course->slug]) }}">Buy course <br>{{ $course->price }} Kyats</a></div>
+                    <div class="sidebar_top" style="background: #A1E756 ;"><a href="{{ $course->register_link }}?redirect_url={{ route('courses.show', [$course->slug]) }}">Buy course <br>{{ $course->price }} Kyats</a></div>
                    
                     @endif
                     @else
-                    <div class="sidebar_top"><a href="{{ route('auth.register') }}?redirect_url={{ route('courses.show', [$course->slug]) }}">Buy course <br>{{ $course->price }} Kyats</a></div>
+                    <div class="sidebar_top" style="background: #A1E756 ;"><a href="{{ route('auth.register') }}?redirect_url={{ route('courses.show', [$course->slug]) }}">Buy course <br>{{ $course->price }} Kyats</a></div>
                     @endif
                     <div class="sidebar_content">
                         
