@@ -59,7 +59,7 @@
                     <div class="header_content d-flex flex-row align-items-center justify-content-start">
                         <div class="logo_container mr-auto">
                             <a href="#">
-                                <div class="logo_text">Zhuxin</div>
+                                <div class="logo_text"><img src="{{ asset('images/Zhuxin_logo.png') }}" width="200px"></div>
                             </a>
                         </div>
                         <nav class="main_nav_contaner">
