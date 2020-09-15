@@ -54,7 +54,7 @@
 <div class="row">
     <!-- Home Background -->
     <div class="home">
-		<div class="home_background" style="background-image: url(/images/index_background.jpg);"></div>
+		<div class="home_background" style="background-image: url('images/background.jpg');"></div>
 		<div class="home_content">
 			<div class="container">
 				<div class="row">
