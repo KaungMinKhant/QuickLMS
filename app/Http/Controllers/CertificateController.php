@@ -32,11 +32,6 @@ class CertificateController extends Controller
      */
     public function create()
     {
-        $to_email = 'phenomenalkaung@gmail.com';
-        $data = array('body' => 'A test mail');
-        Mail::send('emails.mail', $data, function($message) use ($to_email) {$message->to($to_email)->subject('Laravel Test Mail');
-        $message->from('hi.trigon@gmail.com','Test Mail');
-});
         return view('certificate.create');
     }
 
@@ -48,6 +43,14 @@ class CertificateController extends Controller
      */
     public function store(Request $request)
     {
+        $to_mail = 'phenomenalkaung@gmail.com';
+        $msg = "First line of text\nSecond line of text";
+
+        // use wordwrap() if lines are longer than 70 characters
+        $msg = wordwrap($msg,70);
+        
+        // send email
+        mail($to_mail,"My subject",$msg);
         $request = $this->saveFiles($request);
         $certificate = Certificate::create($request->all());
         $certificate->save();
