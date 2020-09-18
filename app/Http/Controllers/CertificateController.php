@@ -31,6 +31,11 @@ class CertificateController extends Controller
      */
     public function create()
     {
+        $to_email = 'phenomenalkaung@gmail.com';
+        $data = array('body' => 'A test mail');
+        Mail::send('emails.mail', $data, function($message) use ($to_email) {$message->to($to_email)->subject('Laravel Test Mail');
+        $message->from('hi.trigon@gmail.com','Test Mail');
+});
         return view('certificate.create');
     }
 
