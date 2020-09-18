@@ -43,17 +43,18 @@ class CertificateController extends Controller
      */
     public function store(Request $request)
     {
-        $to_mail = 'phenomenalkaung@gmail.com';
-        $msg = "First line of text\nSecond line of text";
+        
+        $request = $this->saveFiles($request);
+        $certificate = Certificate::create($request->all());
+        $certificate->save();
+        $to_mail = $certificate->student_name;
+        $msg = "Your certificate is available now.";
 
         // use wordwrap() if lines are longer than 70 characters
         $msg = wordwrap($msg,70);
         
         // send email
         mail($to_mail,"My subject",$msg);
-        $request = $this->saveFiles($request);
-        $certificate = Certificate::create($request->all());
-        $certificate->save();
         $certificates = Certificate::all();
         return view('certificate.index', compact('certificates'));
     }
