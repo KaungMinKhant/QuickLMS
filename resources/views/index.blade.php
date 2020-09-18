@@ -54,7 +54,7 @@
 <div class="row">
     <!-- Home Background -->
     <div class="home">
-		<div class="home_background" style="background-image: url('images/background.jpg');"></div>
+		<div class="home_background" style="background-image: url(/images/index_background.jpg);"></div>
 		<div class="home_content">
 			<div class="container">
 				<div class="row">
@@ -84,7 +84,7 @@
                 <!-- Course -->
                 <div class="col-sm-6 col-md-4">
                     <div class="card_design card" style="padding: 10px;margin:-10px; margin-top:20px; border:0;min-height: 500px;">
-                        <img class="card-img-top" src="{{ asset('uploads/' . $course->course_image) }}" alt="Card image cap">
+                        <img class="card-img-top" src="{{ asset('uploads/' . $course->course_image) }}" alt="Card image cap" width="300" height="202">
                         <div class="card-header"  style="background: #A1E756 ;">
                         <h5 class="card-title"><a style="color:white;" href="{{ route('courses.show', [$course->slug]) }}">{{ $course->title }}</a> </h5>
                         </div>

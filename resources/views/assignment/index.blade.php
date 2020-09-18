@@ -51,7 +51,7 @@
                     <!-- Course -->
                     <div class="col-sm-6 col-md-4">
                         <div class="card_design card" style="padding: 10px;margin:-10px; margin-top:20px; border:0;min-height: 500px;">
-                            <img class="card-img-top" src="{{ asset('uploads/' . $assignment->assignment_image) }}" alt="Card image cap" width="300">
+                            <img class="card-img-top" src="{{ asset('uploads/' . $assignment->assignment_image) }}" alt="Card image cap" width="300" height="202">
                             <div class="card-header" style="background: #A1E756 ;">
                                 <h5 class="card-title"><a style="color:white;">{{ $assignment->title }}</a> </h5>
                             </div>
