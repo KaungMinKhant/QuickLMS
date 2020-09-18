@@ -21,7 +21,7 @@
 
 <!-- Introduction -->
 <div class="intro">
-    <div class="intro_background parallax-window" data-parallax="scroll" data-image-src="/images/index_background.jpg" data-speed="0.8"></div>
+    <div class="intro_background parallax-window" data-parallax="scroll" data-image-src="{{ asset('uploads/' . $course->course_image) }}" data-speed="0.8"></div>
     {{-- <img src="/images/course_1.jpg" alt="" width="100%"> --}}
     <div class="container">
         <div class="row">
