@@ -30,14 +30,14 @@
         </div>
         <div class="row">
             <div class="col-xs-12 form-group">
-                {!! Form::hidden('student_name', old('student_name'), ['class' => 'form-control', 'placeholder' => '', 'required' => '', 'value' => \Auth::user()->name]) !!}
+                {!! Form::hidden('student_name', \Auth::user()->name) !!}
                 <p class="help-block"></p>
                
             </div>
         </div>
         <div class="row">
             <div class="col-xs-12 form-group">
-                {!! Form::hidden('course_name', old('course_name'), ['class' => 'form-control', 'placeholder' => '', 'required' => '', 'value' => $course->name]) !!}
+                {!! Form::hidden('course_name', $course->title) !!}
                 <p class="help-block"></p>
                
             </div>
