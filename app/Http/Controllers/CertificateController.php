@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Mail;
 use App\Certificate;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
