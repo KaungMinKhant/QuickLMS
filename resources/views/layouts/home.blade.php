@@ -68,6 +68,7 @@
                             <ul class="main_nav">
                                 <li class="active"><a href="/">Home</a></li>
                                 <li><a href="{{ route('courses.view') }}">Courses</a></li>
+                                <li><a href="{{ route('assignment.index') }}">Peer Learning Centre</a></li>
                                 <li>
                                     @if (Auth::check())
 
@@ -169,6 +170,7 @@
             <ul class="menu_mm">
                 <li class="menu_mm"><a href="/">Home</a></li>
                 <li class="menu_mm"><a href="{{ route('courses.view') }}">Courses</a></li>
+                <li><a href="{{ route('assignment.index') }}">Peer Learning Centre</a></li>
                 @if (Auth::check())
 
                 <form action="{{ route('auth.logout') }}" method="post">

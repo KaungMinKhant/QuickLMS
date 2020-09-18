@@ -204,6 +204,8 @@
                     <div class="sidebar_top" style="background: #A1E756 ;"><a href="{{ $course->register_link }}?redirect_url={{ route('courses.show', [$course->slug]) }}">Buy course <br>{{ $course->price }} Kyats</a></div>
                    
                     @endif
+                    @elseif($purchased_course)
+                    <div class="sidebar_top" style="background: #A1E756 ;"><a href="{{ route('assignment.create', [$course->id]) }}">Submit Assignment</a></div> 
                     @else
                     <div class="sidebar_top" style="background: #A1E756 ;"><a href="{{ route('auth.register') }}?redirect_url={{ route('courses.show', [$course->slug]) }}">Buy course <br>{{ $course->price }} Kyats</a></div>
                     @endif
@@ -211,7 +213,7 @@
                     <div class="sidebar_content">
                         @if(Auth::check())
                        
-                        <div class="sidebar_top" style="background: #A1E756 ;"><a href="{{ route('assignment.create', [$course->id]) }}">Submit Assignment</a></div> 
+                        
                         @endif
                         @if($purchased_course)
                          <div class="sidebar_section features">

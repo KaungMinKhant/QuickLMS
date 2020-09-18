@@ -87,7 +87,7 @@
                         <img class="card-img-top" src="{{ asset('uploads/' . $course->course_image) }}" alt="Card image cap" width="300" height="202">
                         <div class="card-header"  style="background: #A1E756 ;">
                         <h5 class="card-title"><a style="color:white;" href="{{ route('courses.show', [$course->slug]) }}">{{ $course->title }}</a> </h5>
-                        </div>
+                        </div> 
                         <div class="card-body">
                             <p class="card-text">
                             {{-- <div class="course_info">
