@@ -1,6 +1,8 @@
 <?php
 
 Route::get('/', 'HomeController@index');
+Route::get('assignment/{id}', 'AssignmentController@create')->name('assignment.create');
+Route::resource('assignment', 'AssignmentController', ['except' => ['create']]);
 Route::get('courses','HomeController@courses')->name('courses.view');
 Route::get('course/{slug}', ['uses' => 'CoursesController@show', 'as' => 'courses.show']);
 Route::post('course/payment', ['uses' => 'CoursesController@payment', 'as' => 'courses.payment']);

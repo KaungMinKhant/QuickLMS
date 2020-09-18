@@ -207,11 +207,16 @@
                     @else
                     <div class="sidebar_top" style="background: #A1E756 ;"><a href="{{ route('auth.register') }}?redirect_url={{ route('courses.show', [$course->slug]) }}">Buy course <br>{{ $course->price }} Kyats</a></div>
                     @endif
+                    
                     <div class="sidebar_content">
-                        
+                        @if(Auth::check())
+                       
+                        <div class="sidebar_top" style="background: #A1E756 ;"><a href="{{ route('assignment.create', [$course->id]) }}">Submit Assignment</a></div> 
+                        @endif
                         @if($purchased_course)
                          <div class="sidebar_section features">
-                            <div class="sidebar_title">သင်တန်းတက်နေပါတယ်.</div>    
+                            <div class="sidebar_title">သင်တန်းတက်နေပါတယ်.</div>
+                            
                         </div>
                         @elseif(Auth::check())
                         <!-- Features -->
