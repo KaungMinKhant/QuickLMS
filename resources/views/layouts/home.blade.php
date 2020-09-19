@@ -71,7 +71,7 @@
                                 <li><a href="{{ route('assignment.index') }}">Peer Learning Centre</a></li>
                                 <li>
                                     @if (Auth::check())
-
+                                    @if($user->profile_pic)<a href="{{ asset('uploads/' . $user->profile_pic) }}" target="_blank"><img src="{{ asset('uploads/thumb/' . $user->profile_pic) }}"/></a>@endif
                                     <a>
                                         <form action="{{ route('auth.logout') }}" method="post">
                                             {!! csrf_field() !!}
@@ -82,6 +82,7 @@
 
                                     @else
                                     <a href="" data-toggle="modal" data-target="#modalLoginForm">Login</a>
+                                    <a href="{{ route('auth.register')}}">Register</a>
                                     @endif
                                 </li>
                             </ul>
@@ -172,13 +173,14 @@
                 <li class="menu_mm"><a href="{{ route('courses.view') }}">Courses</a></li>
                 <li><a href="{{ route('assignment.index') }}">Peer Learning Centre</a></li>
                 @if (Auth::check())
-
+                @if($user->profile_pic)<a href="{{ asset('uploads/' . $user->profile_pic) }}" target="_blank"><img src="{{ asset('uploads/thumb/' . $user->profile_pic) }}"/></a>@endif
                 <form action="{{ route('auth.logout') }}" method="post">
                     {!! csrf_field() !!}
                     <input type="submit" value="Logout" class="btn btn-info">
                 </form>
                 @else
                 <li><a href="" data-toggle="modal" data-target="#modalLoginForm">Login</a></li>
+                <li><a href="{{ route('auth.register')}}">Register</a></li>
                 @endif
             </ul>
         </nav>
