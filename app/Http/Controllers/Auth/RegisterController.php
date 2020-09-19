@@ -65,7 +65,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        $request=$this->saveFiles($data);
+       
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
@@ -87,7 +87,7 @@ class RegisterController extends Controller
      */
     public function register(Request $request)
     {
-        
+        $request=$this->saveFiles($request);
         $this->validator($request->all())->validate();
 
         event(new Registered($user = $this->create($request->all())));

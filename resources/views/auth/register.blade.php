@@ -1,138 +1,121 @@
-@extends('layouts.app')
+@extends('layouts.auth')
 
 @section('content')
-<h3 class="page-title">@lang('global.users.title')</h3>
-{!! Form::open(['method' => 'POST', 'route' => ['admin.users.store'], 'files' => true,]) !!}
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="panel panel-default">
+                <div class="panel-heading">Register</div>
+                <div class="panel-body">
+                    {!! Form::open(['method' => 'POST', 'route' => ['auth.register'], 'files' => true,]) !!}
+                    {{ csrf_field() }}
+                    <input type="hidden" name="redirect_url" value="{{ request('redirect_url', '/') }}">
 
-<div class="panel panel-default">
-    <div class="panel-heading">
-        @lang('global.app_create')
-    </div>
+                    <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+                        <label for="name" class="col-md-4 control-label">Name</label>
 
-    <div class="panel-body">
-        <div class="row">
-            <div class="col-xs-12 form-group">
-                {!! Form::label('name', 'Name*', ['class' => 'control-label']) !!}
-                {!! Form::text('name', old('name'), ['class' => 'form-control', 'placeholder' => '', 'required' => '']) !!}
-                <p class="help-block"></p>
-                @if($errors->has('name'))
-                <p class="help-block">
-                    {{ $errors->first('name') }}
-                </p>
-                @endif
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-12 form-group">
-                {!! Form::label('email', 'Email*', ['class' => 'control-label']) !!}
-                {!! Form::email('email', old('email'), ['class' => 'form-control', 'placeholder' => '', 'required' => '']) !!}
-                <p class="help-block"></p>
-                @if($errors->has('email'))
-                <p class="help-block">
-                    {{ $errors->first('email') }}
-                </p>
-                @endif
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-12 form-group">
-                {!! Form::label('password', 'Password*', ['class' => 'control-label']) !!}
-                {!! Form::password('password', ['class' => 'form-control', 'placeholder' => '', 'required' => '']) !!}
-                <p class="help-block"></p>
-                @if($errors->has('password'))
-                <p class="help-block">
-                    {{ $errors->first('password') }}
-                </p>
-                @endif
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-12 form-group">
-                {!! Form::label('Father Name', 'Father Name*', ['class' => 'control-label']) !!}
-                {!! Form::text('father_name', old('father_name'), ['class' => 'form-control', 'placeholder' => '', 'required' => '']) !!}
-                <p class="help-block"></p>
-                @if($errors->has('email'))
-                <p class="help-block">
-                    {{ $errors->first('email') }}
-                </p>
-                @endif
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-12 form-group">
-                {!! Form::label('NRC Number', 'NRC Number*', ['class' => 'control-label']) !!}
-                {!! Form::text('nrc_number', old('nrc_number'), ['class' => 'form-control', 'placeholder' => '', 'required' => '']) !!}
-                <p class="help-block"></p>
-                @if($errors->has('email'))
-                <p class="help-block">
-                    {{ $errors->first('email') }}
-                </p>
-                @endif
-            </div>
-        </div>
+                        <div class="col-md-6">
+                            <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
 
-        <div class="row">
-            <div class="col-xs-12 form-group">
-                {!! Form::label('Date Of Birth', 'Date of Birth*', ['class' => 'control-label']) !!}
-                {!! Form::text('date_of_birth', old('date_of_birth'), ['class' => 'form-control', 'placeholder' => '2000-1-3(year-month-date)', 'required' => '']) !!}
-                <p class="help-block"></p>
-                @if($errors->has('email'))
-                <p class="help-block">
-                    {{ $errors->first('email') }}
-                </p>
-                @endif
+                            @if ($errors->has('name'))
+                            <span class="help-block">
+                                <strong>{{ $errors->first('name') }}</strong>
+                            </span>
+                            @endif
+                        </div>
+                    </div>
+
+                    <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                        <label for="email" class="col-md-4 control-label">E-Mail Address</label>
+
+                        <div class="col-md-6">
+                            <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
+
+                            @if ($errors->has('email'))
+                            <span class="help-block">
+                                <strong>{{ $errors->first('email') }}</strong>
+                            </span>
+                            @endif
+                        </div>
+                    </div>
+
+
+
+                    <div class="form-group">
+                        <label for="father_name" class="col-md-4 control-label">Father Name</label>
+
+                        <div class="col-md-6">
+                            <input id="father-name" type="text" class="form-control" name="father_name" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="nrc_number" class="col-md-4 control-label">NRC Number</label>
+
+                        <div class="col-md-6">
+                            <input id="nrc-number" type="text" class="form-control" name="nrc_number" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="date_of_birth" class="col-md-4 control-label">Date of Birth</label>
+
+                        <div class="col-md-6">
+                            <input id="date-of-birth" type="date" class="form-control" name="date_of_birth" placeholder="2000-1-3(year-month-date)" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone_number" class="col-md-4 control-label">Phone Number</label>
+
+                        <div class="col-md-6">
+                            <input id="phone-number" type="text" class="form-control" name="phone_number" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="address" class="col-md-4 control-label">Address</label>
+
+                        <div class="col-md-6">
+                            <input id="address" type="text" class="form-control" name="address" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+                        <label for="password" class="col-md-4 control-label">Password</label>
+
+                        <div class="col-md-6">
+                            <input id="password" type="password" class="form-control" name="password" required>
+
+                            @if ($errors->has('password'))
+                            <span class="help-block">
+                                <strong>{{ $errors->first('password') }}</strong>
+                            </span>
+                            @endif
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>
+
+                        <div class="col-md-6">
+                            <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="profile-pic" class="col-md-4 control-label">Profile Picture (အောင်လက်မှတ် ထုတ်ပေးမည်ဖြစ်သဖြင့် လိုင်စင်ပုံသာပေးပါရန်)</label>
+
+                        <div class="col-md-6">
+                            <input id="profile-pic" type="file" class="form-control" name="profile_pic">
+                        </div>
+                    </div>
+
+                    {!! Form::submit(trans('global.app_save'), ['class' => 'btn btn-danger']) !!}
+                    {!! Form::close() !!}
+                </div>
             </div>
         </div>
-
-        <div class="row">
-            <div class="col-xs-12 form-group">
-                {!! Form::label('Phone Number', 'Phone Number*', ['class' => 'control-label']) !!}
-                {!! Form::text('phone_number', old('phone_number'), ['class' => 'form-control', 'placeholder' => '', 'required' => '']) !!}
-                <p class="help-block"></p>
-                @if($errors->has('email'))
-                <p class="help-block">
-                    {{ $errors->first('email') }}
-                </p>
-                @endif
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-xs-12 form-group">
-                {!! Form::label('Address', 'Address*', ['class' => 'control-label']) !!}
-                {!! Form::text('address', old('address'), ['class' => 'form-control', 'placeholder' => '', 'required' => '']) !!}
-                <p class="help-block"></p>
-                @if($errors->has('email'))
-                <p class="help-block">
-                    {{ $errors->first('email') }}
-                </p>
-                @endif
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-xs-12 form-group">
-                {!! Form::label('profile_pic', 'Profile Picture', ['class' => 'control-label']) !!}
-                {!! Form::file('profile_pic', ['class' => 'form-control', 'style' => 'margin-top: 4px;']) !!}
-                {!! Form::hidden('profile_pic_max_size', 8) !!}
-                {!! Form::hidden('profile_pic_max_width', 4000) !!}
-                {!! Form::hidden('profile_pic_max_height', 4000) !!}
-                <p class="help-block"></p>
-                @if($errors->has('profile_pic'))
-                <p class="help-block">
-                    {{ $errors->first('profile_pic') }}
-                </p>
-                @endif
-            </div>
-        </div>
-
     </div>
 </div>
-
-{!! Form::submit(trans('global.app_save'), ['class' => 'btn btn-danger']) !!}
-{!! Form::close() !!}
-
-
-
-
-@stop
+@endsection
