@@ -71,7 +71,7 @@
                                 <li><a href="{{ route('assignment.index') }}">Peer Learning Centre</a></li>
                                 <li>
                                     @if (Auth::check())
-                                    <a href="{{ asset('uploads/' . \Auth::user()->profile_pic) }}" target="_blank"><img src="{{ asset('uploads/thumb/' . \Auth::user()->profile_pic) }}"/></a>
+                                    <a href="{{ asset('uploads/' . \Auth::user()->profile_pic) }}" target="_blank"><img src="{{ asset('uploads/' . \Auth::user()->profile_pic) }}" width="50"/></a>
                                     <a>
                                         <form action="{{ route('auth.logout') }}" method="post">
                                             {!! csrf_field() !!}
