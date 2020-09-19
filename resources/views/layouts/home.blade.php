@@ -71,7 +71,7 @@
                                 <li><a href="{{ route('assignment.index') }}">Peer Learning Centre</a></li>
                                 <li>
                                     @if (Auth::check())
-                                    @if($user->profile_pic)<a href="{{ asset('uploads/' . $user->profile_pic) }}" target="_blank"><img src="{{ asset('uploads/thumb/' . $user->profile_pic) }}"/></a>@endif
+                                    <a href="{{ asset('uploads/' . \Auth::user()->profile_pic) }}" target="_blank"><img src="{{ asset('uploads/thumb/' . \Auth::user()->profile_pic) }}"/></a>
                                     <a>
                                         <form action="{{ route('auth.logout') }}" method="post">
                                             {!! csrf_field() !!}
@@ -173,7 +173,7 @@
                 <li class="menu_mm"><a href="{{ route('courses.view') }}">Courses</a></li>
                 <li><a href="{{ route('assignment.index') }}">Peer Learning Centre</a></li>
                 @if (Auth::check())
-                @if($user->profile_pic)<a href="{{ asset('uploads/' . $user->profile_pic) }}" target="_blank"><img src="{{ asset('uploads/thumb/' . $user->profile_pic) }}"/></a>@endif
+                <a href="{{ asset('uploads/' . \Auth::user()->profile_pic) }}" target="_blank"><img src="{{ asset('uploads/thumb/' . \Auth::user()->profile_pic) }}"/></a>
                 <form action="{{ route('auth.logout') }}" method="post">
                     {!! csrf_field() !!}
                     <input type="submit" value="Logout" class="btn btn-info">
