@@ -65,7 +65,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        $request=$this->saveFiles($data['profile_pic']);
+        $request=$this->saveFiles($data);
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
