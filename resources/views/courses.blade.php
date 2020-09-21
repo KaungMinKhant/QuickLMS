@@ -9,7 +9,7 @@
     }
 
     body {
-        background: #ffffff;
+        background: #BFFD7C ;
     }
 
     .row {
@@ -20,7 +20,7 @@
         height: 400px;
     }
     .courses{
-        background: #BFFD7C ;
+        background: #ffffff;
     }
 
 

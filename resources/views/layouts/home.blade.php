@@ -87,7 +87,7 @@
 
                                     @else
                                     <a href="" data-toggle="modal" data-target="#modalLoginForm">Login</a>
-                                    <a href="{{ route('auth.register')}}">Register</a>
+                                    <!-- <a href="{{ route('auth.register')}}">Register</a> -->
                                     @endif
                                 </li>
                             </ul>
@@ -134,10 +134,10 @@
         <form action="{{ route('auth.login') }}" method="post">
             {!! csrf_field() !!}
             <div class="modal-dialog" role="document">
-                <div class="modal-content"><br><br><br><br><br>
-                    <div class="modal-header text-center">
+                <div class="modal-content">
+                    <div class="modal-header text-center" style="background: #97CA57;">
                         <h4 class="modal-title w-100 font-weight-bold"
-                            style="background: #97CA57;"
+                            
                         >Be part of Zhuxin</h4>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
@@ -157,6 +157,10 @@
                     </div>
                     <div class="modal-footer d-flex justify-content-center">
                         <input type="submit" value="Login" class="btn btn-default">
+                    </div>
+                    <div class="row d-flex justify-content-center">
+                            <a href="{{ route('auth.register')}}">Not a member? Register Now</a>
+                            <br><br>
                     </div>
                 </div>
             </div>
@@ -185,7 +189,7 @@
                 </form>
                 @else
                 <li><a href="" data-toggle="modal" data-target="#modalLoginForm">Login</a></li>
-                <li><a href="{{ route('auth.register')}}">Register</a></li>
+                <!-- <li><a href="{{ route('auth.register')}}">Register</a></li> -->
                 @endif
             </ul>
         </nav>

@@ -8,7 +8,7 @@
     }
 
     body {
-        background: #ffffff;
+        background: #BFFD7C;
     }
 
     .row {
@@ -19,7 +19,7 @@
         height: 400px;
     }
     .courses{
-        background: #BFFD7C ;
+        background: #ffffff;
     }
 
 </style>
@@ -52,18 +52,17 @@
 -->
 
 <div class="row">
-    <!-- Home Background -->
     <!-- Home Background-->
     <div class="home">
 		<div class="home_background" style="background-image: url(/images/index_background.jpg);"></div>
 		<div class="home_content">
 			<div class="container">
-				<div class="row">
+				<!-- <div class="row">
 					<div class="col text-center">
 						<h1 class="home_title">Welcome back</h1>
 						<div class="home_button trans_200"><a href="#">get started</a></div>
 					</div>
-				</div>
+				</div> -->
 			</div>
 		</div>
 	</div>
@@ -85,10 +84,10 @@
                 <!-- Course -->
                 <div class="col-sm-6 col-md-4">
                     <div class="card_design card" style="padding: 10px;margin:-10px; margin-top:20px; border:0;min-height: 500px;">
-                        <img class="card-img-top" src="{{ asset('uploads/' . $course->course_image) }}" alt="Card image cap" width="300" height="202">
+                        <img class="card-img-top" src="{{ asset('uploads/' . $course->course_image) }}" alt="Card image cap">
                         <div class="card-header"  style="background: #A1E756 ;">
                         <h5 class="card-title"><a style="color:white;" href="{{ route('courses.show', [$course->slug]) }}">{{ $course->title }}</a> </h5>
-                        </div> 
+                        </div>
                         <div class="card-body">
                             <p class="card-text">
                             {{-- <div class="course_info">
