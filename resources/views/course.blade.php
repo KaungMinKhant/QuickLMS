@@ -69,10 +69,10 @@
 <div class="course">
     <div class="container" style="width:83%;">
 
-        <div class="row row-lg-eq-height">
+        <div class="row row-lg-eq-height" >
 
             <!-- Panels -->
-            <div class="col-lg-6">
+            <div class="col-lg-7">
                 <div class="tab_panels">
 
                     <!-- Tabs -->
