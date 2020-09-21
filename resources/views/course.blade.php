@@ -10,10 +10,10 @@
 <!-- Home -->
 <div class="home" style="height:50px;">
     <nav aria-label="breadcrumb">
-        <ol class="breadcrumbs_list breadcrumb"  style="background: #A1E756 ;">
-                    <li><a href="/">home</a></li>
-                    <li><a href="courses.html">courses</a></li>
-                    <li><a href="#">{{ $course->title }}</a></li>
+        <ol class="breadcrumbs_list breadcrumb" style="background: #A1E756 ;">
+            <li><a href="/">home</a></li>
+            <li><a href="courses.html">courses</a></li>
+            <li><a href="#">{{ $course->title }}</a></li>
         </ol>
     </nav>
 </div>
@@ -21,7 +21,7 @@
 
 <!-- Introduction -->
 <div class="intro">
-    <div class="intro_background parallax-window" data-parallax="scroll" data-image-src="/images/index_background.jpg" data-speed="0.8"></div>
+    <div class="intro_background parallax-window" data-parallax="scroll" data-image-src="{{ asset('uploads/' . $course->course_image) }}" data-speed="0.8"></div>
     {{-- <img src="/images/course_1.jpg" alt="" width="100%"> --}}
     <div class="container">
         <div class="row">
@@ -29,14 +29,14 @@
                 <div class="intro_container d-flex flex-column align-items-start justify-content-end">
                     <div class="intro_content" style="width:100%;">
                         @if ($purchased_course)
-                        <div class="intro_title" >{{ $course->title }} 
+                        <div class="intro_title">{{ $course->title }}
                             <span class="badge badge-secondary"> Rating: {{ $course->rating }} / 5</span>
                         </div>
                         <p>Price: {{ $course -> price }} Kyats</p>
                         <hr>
-                        
-                            
-                            <!-- <div class="container">
+
+
+                        <!-- <div class="container">
                             <div class="row">
                             <div class="d-flex flex-column align-items-start justify-content-Center">
                             <b>Rate the course:</b>
@@ -55,7 +55,7 @@
                             </div>
                             </div> -->
 
-                            @endif
+                        @endif
 
                     </div>
                 </div>
@@ -77,7 +77,7 @@
 
                     <!-- Tabs -->
                     <div class="course_tabs_container">
-                        <div class="container" >
+                        <div class="container">
                             <div class="row">
                                 <div class="col-lg-12">
                                     <div class="tabs d-flex flex-row align-items-center justify-content-start">
@@ -92,7 +92,7 @@
                     </div>
 
                     <!-- Description -->
-                    <div class="tab_panel description active" >
+                    <div class="tab_panel description active">
                         <div class="panel_title">About this course</div>
                         <div class="panel_text">
                             <p>{{$course -> description }}</p>
@@ -190,6 +190,9 @@
                 <div class="sidebar">
                     <div class="sidebar_background"></div>
                     @if (\Auth::check())
+                    @if($purchased_course)
+                    <div class="sidebar_top" style="background: #A1E756 ;"><a href="{{ route('assignment.create', [$course->id]) }}">Submit Assignment</a></div>
+                    @endif
                     @if ($course->students()->where('user_id', \Auth::id())->count() == 0)
                     {{-- <form action="{{ route('courses.payment') }}" method="POST">
                     <input type="hidden" name="course_id" value="{{ $course->id }}" />
@@ -202,16 +205,22 @@
                     {{ csrf_field() }}
                     </form> --}}
                     <div class="sidebar_top" style="background: #A1E756 ;"><a href="{{ $course->register_link }}?redirect_url={{ route('courses.show', [$course->slug]) }}">Buy course <br>{{ $course->price }} Kyats</a></div>
-                   
+
                     @endif
+
                     @else
                     <div class="sidebar_top" style="background: #A1E756 ;"><a href="{{ route('auth.register') }}?redirect_url={{ route('courses.show', [$course->slug]) }}">Buy course <br>{{ $course->price }} Kyats</a></div>
                     @endif
+
                     <div class="sidebar_content">
-                        
+                        @if(Auth::check())
+
+
+                        @endif
                         @if($purchased_course)
-                         <div class="sidebar_section features">
-                            <div class="sidebar_title">သင်တန်းတက်နေပါတယ်.</div>    
+                        <div class="sidebar_section features">
+                            <div class="sidebar_title">သင်တန်းတက်နေပါတယ်.</div>
+
                         </div>
                         @elseif(Auth::check())
                         <!-- Features -->
@@ -224,7 +233,7 @@
 
                                     <li class="d-flex flex-row align-items-start justify-content-start">
                                         <div class="feature_title"><i class="fa fa-clock-o" aria-hidden="true"></i><span>သင်တန်းကြေးမှာ {{$course->price}} ကျပ်ဖြစ်ပါသည်။ သင်တန်းအပ်ရန်အတွက် အောက်က Account တစ်ခုခုကို ပိုက်ဆံလွှဲပါ။ ထို့နောက် ငွေလွှဲထားသော ပြေစာကိုဓာတ်ပုံရိုက်ယူထားပါ။</span></div>
-                                        
+
                                     </li>
                                     <li class="d-flex flex-row align-items-start justify-content-start">
                                         <div class="feature_title"><i class="fa fa-clock-o" aria-hidden="true"></i><span>KBZ Bank</span></div>
@@ -254,7 +263,7 @@
                                     <!-- Feature -->
                                     <li class="d-flex flex-row align-items-start justify-content-start">
                                         <div class="feature_title"><i class="fa fa-thumbs-down" aria-hidden="true"></i><span>သင့်ရဲ့ ကျောင်းသားအမှတ်က {{ Auth::user()->id }} ဖြစ်ပါတယ်။ အခု သင်တန်းအမှတ်က {{$course->id}} ဖြစ်ပါတယ်။ အပေါ်မှာရှိတဲ့ Buy Course ကို နှိပ်ပြီး ကျောင်းသားအမှတ်၊ သင်တန်းအမှတ်၊ ငွေရှင်းပြေစာတို့ကို ဖြည့်သွင်းပါ။</span></div>
-                                       
+
                                     </li>
                                 </ul>
                             </div>
@@ -262,7 +271,7 @@
                         @else
                         <div class="sidebar_section features">
                             <div class="sidebar_title">Buy Course ကို နှိပ်ပြီး register အရင်လုပ်ပါ</div>
-                            
+
                         </div>
                         @endif
                     </div>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Course;
+use App\User;
 use Illuminate\Http\Request;
 use Stripe\Stripe;
 use Stripe\Charge;
@@ -15,6 +16,7 @@ class CoursesController extends Controller
     {
         $course = Course::where('slug', $course_slug)->with('publishedLessons')->firstOrFail();
         $purchased_course = \Auth::check() && $course->students()->where('user_id', \Auth::id())->count() > 0;
+       
 
         return view('course', compact('course', 'purchased_course'));
     }
@@ -22,8 +24,16 @@ class CoursesController extends Controller
     public function payment(Request $request)
     {
         $course = Course::findOrFail($request->get('course_id'));
+        $user = User::findOrFail($request->get('user_id'));
         //$this->createStripeCharge($request);
+        $to_mail = $user->email;
+        $msg = "Your course's payment has been being verified. You can start attending the course.";
 
+        // use wordwrap() if lines are longer than 70 characters
+        $msg = wordwrap($msg,70);
+        
+        // send email
+        mail($to_mail,"My subject",$msg);
         $course->students()->attach($request->get('user_id'));
 
         return redirect()->back()->with('success', 'Payment completed successfully.');

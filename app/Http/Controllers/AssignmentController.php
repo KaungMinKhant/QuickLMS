@@ -2,16 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Mail;
-use App\Certificate;
+use App\Assignment;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Gate;
-use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\StoreCoursesRequest;
-use App\Http\Requests\Admin\UpdateCoursesRequest;
+use App\Course;
 use App\Http\Controllers\Traits\FileUploadTrait;
 
-class CertificateController extends Controller
+class AssignmentController extends Controller
 {
     use FileUploadTrait;
     /**
@@ -21,8 +17,8 @@ class CertificateController extends Controller
      */
     public function index()
     {
-        $certificates = Certificate::all();
-        return view('certificate.index', compact('certificates'));
+        $assignments = Assignment::all();
+        return view('assignment.index', compact('assignments'));
     }
 
     /**
@@ -30,9 +26,10 @@ class CertificateController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
-        return view('certificate.create');
+        $course = Course::findOrFail($id);
+        return view('assignment.create', compact('course'));
     }
 
     /**
@@ -43,20 +40,21 @@ class CertificateController extends Controller
      */
     public function store(Request $request)
     {
-        
         $request = $this->saveFiles($request);
-        $certificate = Certificate::create($request->all());
-        $certificate->save();
-        $to_mail = $certificate->student_name;
-        $msg = "Your certificate is available now.";
-
-        // use wordwrap() if lines are longer than 70 characters
-        $msg = wordwrap($msg,70);
-        
-        // send email
-        mail($to_mail,"My subject",$msg);
-        $certificates = Certificate::all();
-        return view('certificate.index', compact('certificates'));
+        $assignment = Assignment::create($request->all());
+        $assignment->save();
+        $assignments = Assignment::all();
+        $purchased_courses = NULL;
+        if (\Auth::check()) {
+            $purchased_courses = Course::whereHas('students', function($query) {
+                $query->where('id', \Auth::id());
+            })
+            ->with('lessons')
+            ->orderBy('id', 'desc')
+            ->get();
+        }
+        $courses = Course::where('published', 1)->orderBy('id', 'desc')->get();
+        return view('index', compact('courses', 'purchased_courses'));
     }
 
     /**
@@ -67,11 +65,7 @@ class CertificateController extends Controller
      */
     public function show($id)
     {
-        
-        
-        $certificate = Certificate::findOrFail($id);
-
-        return view('certificate.show', compact('certificate'));
+        //
     }
 
     /**

@@ -3,6 +3,8 @@
 
 <head>
 
+    @include('partials.head')
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -63,26 +65,29 @@
                     <div class="header_content d-flex flex-row align-items-center justify-content-start">
                         <div class="logo_container mr-auto">
                             <a href="#">
-                                <div class="logo_text">Zhuxin</div>
+                                <div class="logo_text"><img src="{{ asset('images/Zhuxin_logo.png') }}" width="200px"></div>
                             </a>
                         </div>
                         <nav class="main_nav_contaner">
                             <ul class="main_nav">
                                 <li class="active"><a href="/">Home</a></li>
                                 <li><a href="{{ route('courses.view') }}">Courses</a></li>
+                                <li><a href="{{ route('assignment.index') }}">Peer Learning Centre</a></li>
                                 <li>
                                     @if (Auth::check())
-
-                                    <a>
+                                    <li><a href="{{ asset('uploads/' . \Auth::user()->profile_pic) }}" target="_blank"><img src="{{ asset('uploads/' . \Auth::user()->profile_pic) }}" width="50"/></a></li>
+                                    <li><a>
                                         <form action="{{ route('auth.logout') }}" method="post">
                                             {!! csrf_field() !!}
                                             <input type="submit" value="Logout" class="btn btn-auth">
                                         </form>
                                     </a>
+                                    </li>
 
 
                                     @else
                                     <a href="" data-toggle="modal" data-target="#modalLoginForm">Login</a>
+                                    <a href="{{ route('auth.register')}}">Register</a>
                                     @endif
                                 </li>
                             </ul>
@@ -171,14 +176,16 @@
             <ul class="menu_mm">
                 <li class="menu_mm"><a href="/">Home</a></li>
                 <li class="menu_mm"><a href="{{ route('courses.view') }}">Courses</a></li>
+                <li><a href="{{ route('assignment.index') }}">Peer Learning Centre</a></li>
                 @if (Auth::check())
-
+                <a href="{{ asset('uploads/' . \Auth::user()->profile_pic) }}" target="_blank"><img src="{{ asset('uploads/thumb/' . \Auth::user()->profile_pic) }}"/></a>
                 <form action="{{ route('auth.logout') }}" method="post">
                     {!! csrf_field() !!}
                     <input type="submit" value="Logout" class="btn btn-info">
                 </form>
                 @else
                 <li><a href="" data-toggle="modal" data-target="#modalLoginForm">Login</a></li>
+                <li><a href="{{ route('auth.register')}}">Register</a></li>
                 @endif
             </ul>
         </nav>
@@ -248,6 +255,7 @@
     <!-- <script src="/js/bootstrap.min.js"></script> -->
 
     <!-- King's JS -->
+    @include('partials.javascripts')
     <script src="/js/jquery-3.2.1.min.js"></script>
     <script src="/styles/bootstrap4/popper.js"></script>
     <script src="/styles/bootstrap4/bootstrap.min.js"></script>

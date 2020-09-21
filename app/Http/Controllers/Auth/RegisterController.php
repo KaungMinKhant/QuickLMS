@@ -8,6 +8,7 @@ use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use App\Http\Controllers\Traits\FileUploadTrait;
 
 class RegisterController extends Controller
 {
@@ -21,7 +22,7 @@ class RegisterController extends Controller
     | provide this functionality without requiring any additional code.
     |
     */
-
+    use FileUploadTrait;
     use RegistersUsers;
 
     /**
@@ -64,6 +65,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+       
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
@@ -85,6 +87,7 @@ class RegisterController extends Controller
      */
     public function register(Request $request)
     {
+        $request=$this->saveFiles($request);
         $this->validator($request->all())->validate();
 
         event(new Registered($user = $this->create($request->all())));
