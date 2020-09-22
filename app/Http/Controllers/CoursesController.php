@@ -11,6 +11,11 @@ use Stripe\Customer;
 
 class CoursesController extends Controller
 {
+    public function feed()
+    {
+        $courses = Course::orderBy('created_at', 'desc')->take(20)->get();
+        return view('feed')->with(compact('courses'));
+    }
 
     public function show($course_slug)
     {
