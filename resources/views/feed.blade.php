@@ -16,11 +16,9 @@
         $course->description = stripslashes($course->description);
         $course->slug = stripslashes($course->slug);
 
-        if ($course->course_image !='') {
-        $img = "<img src="{{ asset('uploads/' . $course->course_image) }}" alt='".$course->title."' width='600'>";
-        } else {
-        $img = null;
-        }
+       
+        $img = "<img src='{{ asset('uploads/' . $course->course_image) }}' alt='".$course->title."' width='600'>";
+        
 
         @endphp
         @item
