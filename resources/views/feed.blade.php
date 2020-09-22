@@ -17,14 +17,14 @@
         $course->slug = stripslashes($course->slug);
 
        
-        $img = "<img src='{{ asset('uploads/' . $course->course_image) }}' alt='".$course->title."' width='600'>";
+        //$img = "<img src='{{ asset('uploads/' . $course->course_image) }}' alt='".$course->title."' width='600'>";
         
 
         @endphp
         <item>
         <title>{{ $course->title }}</title>
         <description>
-            <![CDATA[{!! $img !!} {!! $course->description !!}]]>
+            <![CDATA[ {!! $course->description !!}]]>
         </description>
         <pubDate>{{ date('D, d M Y H:i:s', strtotime($course->created_at)) }} GMT</pubDate>
         <link>{{ url($course->slug) }}</link>
