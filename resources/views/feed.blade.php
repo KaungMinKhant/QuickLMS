@@ -17,8 +17,7 @@
         $course->slug = stripslashes($course->slug);
 
        
-        //$img = "<img src='{{ asset('uploads/' . $course->course_image) }}' alt='".$course->title."' width='600'>";
-        
+       
 
         @endphp
         <item>
