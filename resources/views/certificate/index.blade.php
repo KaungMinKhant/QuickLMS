@@ -162,7 +162,7 @@
                                 
                                 <td>
                                     
-                                    <a href="{{ route('certificate.index'), [$certificate->id] }}" class="btn btn-xs btn-primary">@lang('view')</a>
+                                    <a href="{{ route('certificate.index'), [$certificate->id] }}" class="btn btn-xs btn-primary">@lang('delete')</a>
                                     
                                 </td>
                                 
