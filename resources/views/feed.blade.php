@@ -21,7 +21,7 @@
         
 
         @endphp
-        @item
+        <item>
         <title>{{ $course->title }}</title>
         <description>
             <![CDATA[{!! $img !!} {!! $course->description !!}]]>
