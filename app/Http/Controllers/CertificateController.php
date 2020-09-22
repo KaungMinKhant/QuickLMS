@@ -107,7 +107,7 @@ class CertificateController extends Controller
     {
         $certificate = Certificate::findOrFail($id);
         $certificate->delete();
-
-        return redirect()->route('certificate.index');
+        $certificates = Certificate::all();
+        return view('certificate.index', compact('certificates'));
     }
 }

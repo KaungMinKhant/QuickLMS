@@ -23,7 +23,7 @@
                         
                         <tr>
                             <th>@lang('global.lessons.fields.lesson-image')</th>
-                            <td>@if($certificate->certificate_photo)<a href="{{ asset('uploads/' . $certificate->certificate_photo) }}" target="_blank"><img src="{{ asset('uploads/thumb/' . $certificate->certificate_photo) }}"/></a>@endif</td>
+                            <td>@if($certificate->certificate_photo)<a href="{{ asset('uploads/' . $certificate->certificate_photo) }}" target="_blank"><img src="{{ asset('uploads/' . $certificate->certificate_photo) }}"/></a>@endif</td>
                         </tr>
                         
                     </table>
