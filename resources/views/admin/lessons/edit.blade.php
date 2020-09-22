@@ -47,36 +47,8 @@
                     @endif
                 </div>
             </div>
-            <div class="row">
-                <div class="col-xs-12 form-group">
-                    @if ($lesson->lesson_image)
-                        <a href="{{ asset('uploads/'.$lesson->lesson_image) }}" target="_blank"><img src="{{ asset('uploads/thumb/'.$lesson->lesson_image) }}"></a>
-                    @endif
-                    {!! Form::label('lesson_image', 'Lesson image', ['class' => 'control-label']) !!}
-                    {!! Form::file('lesson_image', ['class' => 'form-control', 'style' => 'margin-top: 4px;']) !!}
-                    {!! Form::hidden('lesson_image_max_size', 8) !!}
-                    {!! Form::hidden('lesson_image_max_width', 4000) !!}
-                    {!! Form::hidden('lesson_image_max_height', 4000) !!}
-                    <p class="help-block"></p>
-                    @if($errors->has('lesson_image'))
-                        <p class="help-block">
-                            {{ $errors->first('lesson_image') }}
-                        </p>
-                    @endif
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-12 form-group">
-                    {!! Form::label('short_text', 'Short text', ['class' => 'control-label']) !!}
-                    {!! Form::textarea('short_text', old('short_text'), ['class' => 'form-control ', 'placeholder' => '']) !!}
-                    <p class="help-block"></p>
-                    @if($errors->has('short_text'))
-                        <p class="help-block">
-                            {{ $errors->first('short_text') }}
-                        </p>
-                    @endif
-                </div>
-            </div>
+            
+            
             <div class="row">
                 <div class="col-xs-12 form-group">
                     {!! Form::label('full_text', 'Full text', ['class' => 'control-label']) !!}
