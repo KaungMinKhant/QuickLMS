@@ -1,6 +1,7 @@
 <?php
 
 Route::get('/', 'HomeController@index');
+Route::resource('certificate', 'CertificateController');
 Route::get('assignment/{id}', 'AssignmentController@create')->name('assignment.create');
 Route::resource('assignment', 'AssignmentController', ['except' => ['create']]);
 Route::get('courses','HomeController@courses')->name('courses.view');
