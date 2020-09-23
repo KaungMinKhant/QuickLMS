@@ -21,6 +21,12 @@ class AssignmentController extends Controller
         return view('assignment.index', compact('assignments'));
     }
 
+    public function view()
+    {
+        $assignments = Assignment::all();
+        return view('assignment.view', compact('assignments'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *

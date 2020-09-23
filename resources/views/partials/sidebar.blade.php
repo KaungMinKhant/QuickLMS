@@ -82,6 +82,12 @@
                 </a>
             </li>
             
+            <li class="{{ $request->segment(2) == 'assignments' ? 'active' : '' }}">
+                <a href="{{ route('assignment.view') }}">
+                    <i class="fa fa-gears"></i>
+                    <span class="title">Assignments</span>
+                </a>
+            </li>
 
             
 
