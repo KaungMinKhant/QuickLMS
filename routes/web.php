@@ -3,8 +3,8 @@
 Route::get('/', 'HomeController@index');
 Route::resource('certificate', 'CertificateController');
 Route::get('assignment/{id}', 'AssignmentController@create')->name('assignment.create');
-Route::get('assignment/view', 'AssignmentController@view')->name('assignment.view');
-Route::resource('assignment', 'AssignmentController', ['except' => ['create']]);
+Route::get('assignment_view',['uses' => 'AssignmentController@view', 'as' => 'assignment.view']);
+Route::resource('assignment', 'AssignmentController', ['except' => ['create', 'view']]);
 Route::get('courses','HomeController@courses')->name('courses.view');
 Route::get('courses/feed', 'CoursesController@feed');
 Route::get('course/{slug}', ['uses' => 'CoursesController@show', 'as' => 'courses.show']);
