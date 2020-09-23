@@ -8,7 +8,7 @@
     }
 
     body {
-        background: #BFFD7C;
+        background: #247D49;
     }
 
     .row {
