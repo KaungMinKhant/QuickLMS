@@ -21,6 +21,14 @@
     .courses{
         background: #ffffff;
     }
+    .gap{
+        width: 100%;
+        height: 10px;
+        background: #247D49;
+        border-color: black;
+    }
+
+    
 
 </style>
 
@@ -68,6 +76,10 @@
 	</div>
     
     <!-- End of Home Background -->
+    <div class = "gap">
+
+    </div>
+    
 
     <div class="courses">
         <div class="container">

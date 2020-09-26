@@ -1,5 +1,7 @@
 <?php
-
+Route::get('wave', function () {
+    return view('wave');
+});
 Route::get('/', 'HomeController@index');
 Route::resource('certificate', 'CertificateController');
 Route::get('assignment/{id}', 'AssignmentController@create')->name('assignment.create');
