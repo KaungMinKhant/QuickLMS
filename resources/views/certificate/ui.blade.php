@@ -107,17 +107,12 @@
 
 @inject('request', 'Illuminate\Http\Request')
 
-@extends('layouts.app')
+@extends('layouts.cer')
 
 
 @section('content')
-<h3 class="page-title">@lang('global.courses.title')</h3>
-@can('course_create')
-<p>
-    <a href="{{ route('certificate.create') }}" class="btn btn-success">@lang('global.app_add_new')</a>
+<h3 class="page-title">Certificates</h3>
 
-</p>
-@endcan
 
 
 

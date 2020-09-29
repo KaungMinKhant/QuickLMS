@@ -2,9 +2,7 @@
 <html lang="en">
 
 <head>
-
     @include('partials.head')
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,8 +15,8 @@
     <!-- <link href="/css/bootstrap.min.css" rel="stylesheet"> -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
     <!-- Custom CSS -->
     <!-- <link href="/css/shop-homepage.css" rel="stylesheet"> -->
@@ -41,23 +39,10 @@
 
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
-
-
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
 </head>
 
-<body>
 
-{{-- <script id="5f526247fafe191fb649fdee" src="https://dashboard.chatfuel.com/integration/fb-entry-point.js" async defer></script> --}}
-
-    <!-- Header -->
+<body class="hold-transition skin-blue sidebar-mini">
     <div class="header_container">
         <div class="container">
             <div class="row">
@@ -76,20 +61,20 @@
                                 <li><a href="{{ route('certificates.ui') }}">Certificate</a></li>
                                 <li>
                                     @if (Auth::check())
-                                    <li><a href="{{ asset('uploads/' . \Auth::user()->profile_pic) }}" target="_blank"><img src="{{ asset('uploads/' . \Auth::user()->profile_pic) }}" width="50"/></a></li>
-                                    <li><a>
+                                <li><a href="{{ asset('uploads/' . \Auth::user()->profile_pic) }}" target="_blank"><img src="{{ asset('uploads/' . \Auth::user()->profile_pic) }}" width="50" /></a></li>
+                                <li><a>
                                         <form action="{{ route('auth.logout') }}" method="post">
                                             {!! csrf_field() !!}
                                             <input type="submit" value="Logout" class="btn btn-auth">
                                         </form>
                                     </a>
-                                    </li>
+                                </li>
 
 
-                                    @else
-                                    <a href="" data-toggle="modal" data-target="#modalLoginForm">Login</a>
-                                    <!-- <a href="{{ route('auth.register')}}">Register</a> -->
-                                    @endif
+                                @else
+                                <a href="" data-toggle="modal" data-target="#modalLoginForm">Login</a>
+                                <!-- <a href="{{ route('auth.register')}}">Register</a> -->
+                                @endif
                                 </li>
                             </ul>
                         </nav>
@@ -137,9 +122,7 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header text-center" style="background: #97CA57;">
-                        <h4 class="modal-title w-100 font-weight-bold"
-                            
-                        >Be part of Zhuxin</h4>
+                        <h4 class="modal-title w-100 font-weight-bold">Be part of Zhuxin</h4>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -160,8 +143,8 @@
                         <input type="submit" value="Login" class="btn btn-default">
                     </div>
                     <div class="row d-flex justify-content-center">
-                            <a href="{{ route('auth.register')}}">Not a member? Register Now</a>
-                            <br><br>
+                        <a href="{{ route('auth.register')}}">Not a member? Register Now</a>
+                        <br><br>
                     </div>
                 </div>
             </div>
@@ -183,7 +166,7 @@
                 <li class="menu_mm"><a href="{{ route('courses.view') }}">Courses</a></li>
                 <li><a href="{{ route('assignment.index') }}">Peer Learning Centre</a></li>
                 @if (Auth::check())
-                <a href="{{ asset('uploads/' . \Auth::user()->profile_pic) }}" target="_blank"><img src="{{ asset('uploads/thumb/' . \Auth::user()->profile_pic) }}"/></a>
+                <a href="{{ asset('uploads/' . \Auth::user()->profile_pic) }}" target="_blank"><img src="{{ asset('uploads/thumb/' . \Auth::user()->profile_pic) }}" /></a>
                 <form action="{{ route('auth.logout') }}" method="post">
                     {!! csrf_field() !!}
                     <input type="submit" value="Logout" class="btn btn-info">
@@ -206,61 +189,49 @@
             </div>
         </div>
     </div>
-    <!-- End of Menu -->
-
-    <!-- Navigation -->
 
 
-    <!-- Page Content -->
-    <div class="container">
+    <div id="wrapper">
 
-        <div class="row">
 
-            <div class="col-md-3">
 
-                @yield('sidebar')
 
-            </div>
-
-            <div class="col-md-12">
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <!-- Main content -->
+            <section class="content">
+                
 
                 <div class="row">
+                    <div class="col-md-12">
 
-                    @yield('main')
+                        @if (Session::has('message'))
+                        <div class="note note-info">
+                            <p>{{ Session::get('message') }}</p>
+                        </div>
+                        @endif
+                        @if ($errors->count() > 0)
+                        <div class="note note-danger">
+                            <ul class="list-unstyled">
+                                @foreach($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                        @endif
 
+                        @yield('content')
+
+                    </div>
                 </div>
-
-            </div>
-
+            </section>
         </div>
-
     </div>
-    <!-- /.container -->
 
-    <div class="container">
-
-        <hr>
-
-        <!-- Footer -->
-        <footer>
-            <div class="row">
-                <div class="col-lg-12">
-                    <p>Copyright &copy; Trigon 2020</p>
-                </div>
-            </div>
-        </footer>
-
-    </div>
-    <!-- /.container -->
-
-    <!-- jQuery -->
-    <!-- <script src="/js/jquery.js"></script> -->
-
-    <!-- Bootstrap Core JavaScript -->
-    <!-- <script src="/js/bootstrap.min.js"></script> -->
-
-    <!-- King's JS -->
-    @include('partials.javascripts')
+    {!! Form::open(['route' => 'auth.logout', 'style' => 'display:none;', 'id' => 'logout']) !!}
+    <button type="submit">Logout</button>
+    {!! Form::close() !!}
+   
     <script src="/js/jquery-3.2.1.min.js"></script>
     <script src="/styles/bootstrap4/popper.js"></script>
     <script src="/styles/bootstrap4/bootstrap.min.js"></script>
@@ -283,7 +254,7 @@
         gtag('config', 'UA-168010158-2');
 
     </script>
-
+    @include('partials.javascripts')
+    
 </body>
-
 </html>

@@ -25,6 +25,12 @@ class CertificateController extends Controller
         return view('certificate.index', compact('certificates'));
     }
 
+    public function ui()
+    {
+        $certificates = Certificate::all();
+        return view('certificate.ui', compact('certificates'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *

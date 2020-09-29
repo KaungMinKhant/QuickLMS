@@ -3,6 +3,7 @@ Route::get('wave', function () {
     return view('wave');
 });
 Route::get('/', 'HomeController@index');
+Route::get('certificates', 'CertificateController@ui')->name('certificates.ui');
 Route::resource('certificate', 'CertificateController');
 Route::get('assignment/{id}', 'AssignmentController@create')->name('assignment.create');
 Route::get('assignment_view',['uses' => 'AssignmentController@view', 'as' => 'assignment.view']);
