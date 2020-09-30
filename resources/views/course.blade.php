@@ -10,7 +10,7 @@
 <!-- Home -->
 <div class="home" style="height:50px;">
     <nav aria-label="breadcrumb">
-        <ol class="breadcrumbs_list breadcrumb" style="background: #A1E756 ;">
+        <ol class="BLlist breadcrumbs_list breadcrumb" style="background: #247D49;">
             <li><a href="/">home</a></li>
             <li><a href="courses.html">courses</a></li>
             <li><a href="#">{{ $course->title }}</a></li>
@@ -191,25 +191,25 @@
                     <div class="sidebar_background"></div>
                     @if (\Auth::check())
                     @if($purchased_course)
-                    <div class="sidebar_top" style="background: #A1E756 ;"><a href="{{ route('assignment.create', [$course->id]) }}">Submit Assignment</a></div>
+                    <div class="sidebar_top" style="background: #247D49 ;"><a href="{{ route('assignment.create', [$course->id]) }}">Submit Assignment</a></div>
                     @endif
                     @if ($course->students()->where('user_id', \Auth::id())->count() == 0)
                     {{-- <form action="{{ route('courses.payment') }}" method="POST">
                     <input type="hidden" name="course_id" value="{{ $course->id }}" />
                     <input type="hidden" name="amount" value="{{ $course->price * 100 }}" />
-                    <div class="form-group" style="background: #A1E756 ;">
-                        <button type="submit" class="btn btn-success" style="background: #A1E756 ;">
+                    <div class="form-group" style="background: #247D49 ;">
+                        <button type="submit" class="btn btn-success" style="background: #247D49 ;">
                             Buy Course
                         </button>
                     </div>
                     {{ csrf_field() }}
                     </form> --}}
-                    <div class="sidebar_top" style="background: #A1E756 ;"><a href="{{ $course->register_link }}?redirect_url={{ route('courses.show', [$course->slug]) }}">Buy course <br>{{ $course->price }} Kyats</a></div>
+                    <div class="sidebar_top" style="background: #247D49 ;"><a href="{{ $course->register_link }}?redirect_url={{ route('courses.show', [$course->slug]) }}">Buy course <br>{{ $course->price }} Kyats</a></div>
 
                     @endif
 
                     @else
-                    <div class="sidebar_top" style="background: #A1E756 ;"><a href="{{ route('auth.register') }}?redirect_url={{ route('courses.show', [$course->slug]) }}">Buy course <br>{{ $course->price }} Kyats</a></div>
+                    <div class="sidebar_top" style="background: #247D49 ;"><a href="{{ route('auth.register') }}?redirect_url={{ route('courses.show', [$course->slug]) }}">Buy course <br>{{ $course->price }} Kyats</a></div>
                     @endif
 
                     <div class="sidebar_content">

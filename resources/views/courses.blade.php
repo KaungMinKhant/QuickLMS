@@ -9,7 +9,7 @@
     }
 
     body {
-        background: #BFFD7C ;
+        background: #247D49;
     }
 
     .row {
@@ -28,7 +28,7 @@
 
 @if (!is_null($purchased_courses))
 
-<div class="courses">
+<div class="courses" style="margin-top:10px;">
     <div class="courses_background"></div>
     <div class="container">
         <div class="row">
@@ -43,8 +43,8 @@
             <div class="col-sm-6 col-md-4">
                     <div class="card_design card" style="padding: 10px;margin:-10px; margin-top:20px; border:0;min-height: 500px;">
                     <img class="card-img-top" src="{{ asset('uploads/' . $course->course_image) }}" alt="Card image cap" width="300" height="202">
-                    <div class="card-header" style="background: #A1E756 ;">
-                        <h5 class="card-title"><a style="color:white;" href="{{ route('courses.show', [$course->slug]) }}">{{ $course->title }}</a> </h5>
+                    <div class="card-header"  style="background: white;">
+                        <h5 class="card-title"><a style="color:#14502D;" href="{{ route('courses.show', [$course->slug]) }}">{{ $course->title }}</a> </h5>
                     </div>
                     <div class="card-body">
                         <p class="card-text">
@@ -73,6 +73,7 @@
 
 @endif
 
+<hr>
 
 <div class="courses">
         <div class="container">
@@ -90,8 +91,8 @@
                 <div class="col-sm-6 col-md-4">
                     <div class="card_design card" style="padding: 10px;margin:-10px; margin-top:20px; border:0;min-height: 500px;">
                         <img class="card-img-top" src="{{ asset('uploads/' . $course->course_image) }}" alt="Card image cap">
-                        <div class="card-header"  style="background: #A1E756 ;">
-                        <h5 class="card-title"><a style="color:white;" href="{{ route('courses.show', [$course->slug]) }}">{{ $course->title }}</a> </h5>
+                        <div class="card-header"  style="background: white;">
+                        <h5 class="card-title"><a style="color:#14502D;" href="{{ route('courses.show', [$course->slug]) }}">{{ $course->title }}</a> </h5>
                         </div>
                         <div class="card-body">
                             <p class="card-text">
