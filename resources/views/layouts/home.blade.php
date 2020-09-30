@@ -136,7 +136,7 @@
             {!! csrf_field() !!}
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
-                    <div class="modal-header text-center" style="background: #97CA57;">
+                    <div class="modal-header text-center" style="background: #247D49;">
                         <h4 class="modal-title w-100 font-weight-bold"
                             
                         >Be part of Zhuxin</h4>
