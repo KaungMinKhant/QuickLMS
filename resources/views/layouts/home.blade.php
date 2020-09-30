@@ -182,6 +182,7 @@
                 <li class="menu_mm"><a href="/">Home</a></li>
                 <li class="menu_mm"><a href="{{ route('courses.view') }}">Courses</a></li>
                 <li><a href="{{ route('assignment.index') }}">Peer Learning Centre</a></li>
+                <li><a href="{{ route('certificates.ui') }}">Certificate</a></li>
                 @if (Auth::check())
                 <a href="{{ asset('uploads/' . \Auth::user()->profile_pic) }}" target="_blank"><img src="{{ asset('uploads/thumb/' . \Auth::user()->profile_pic) }}"/></a>
                 <form action="{{ route('auth.logout') }}" method="post">
