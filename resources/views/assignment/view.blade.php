@@ -47,7 +47,7 @@
                     <td>{{ $assignment->student_name }}</td>
                     <td>{{ $assignment->course_name }}</td>
 
-                    <td>@if($assignment->assignment_image)<a href="{{ asset('uploads/' . $assignment->assignment_photo) }}" target="_blank"><img src="{{ asset('uploads/' . $assignment->assignment_photo) }}" width="50px" /></a>@endif</td>
+                    <td>@if($assignment->assignment_image)<a href="{{ asset('uploads/' . $assignment->assignment_image) }}" target="_blank"><img src="{{ asset('uploads/' . $assignment->assignment_image) }}" width="50px" /></a>@endif</td>
 
                    
                     
