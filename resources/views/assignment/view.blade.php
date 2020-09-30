@@ -22,10 +22,10 @@
                     @endcan
 
 
-                    <th>@lang('Yitle')</th>
-                    <th>@lang('Student Name')</th>
-                    <th>@lang('Course Name')</th>
-                    <th>@lang('Photo')</th>
+                    <th>Title</th>
+                    <th>Student Name</th>
+                    <th>Course Name</th>
+                    <th>Photo</th>
 
                     @if( request('show_deleted') == 1 )
                     <th>&nbsp;</th>
