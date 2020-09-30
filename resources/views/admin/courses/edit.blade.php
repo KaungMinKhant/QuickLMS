@@ -103,6 +103,7 @@
                     @endif
                 </div>
             </div>
+            
             <div class="row">
                 <div class="col-xs-12 form-group">
                     {!! Form::label('published', 'Published', ['class' => 'control-label']) !!}
