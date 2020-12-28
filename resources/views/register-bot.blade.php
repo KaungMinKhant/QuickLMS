@@ -29,7 +29,7 @@
                         <label for="email" class="col-md-4 control-label">E-Mail Address</label>
 
                         <div class="col-md-6">
-                            <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
+                            <input id="email" type="email" class="form-control" name="email" value="{{$_GET['email']}}" required>
 
                             @if ($errors->has('email'))
                             <span class="help-block">
@@ -45,7 +45,7 @@
                         <label for="father_name" class="col-md-4 control-label">Father Name</label>
 
                         <div class="col-md-6">
-                            <input id="father-name" type="text" class="form-control" name="father_name" required>
+                            <input id="father-name" type="text" class="form-control" name="father_name" value="{{$_GET['father-name']}}"required>
                         </div>
                     </div>
 
@@ -53,7 +53,7 @@
                         <label for="nrc_number" class="col-md-4 control-label">NRC Number</label>
 
                         <div class="col-md-6">
-                            <input id="nrc-number" type="text" class="form-control" name="nrc_number" required>
+                            <input id="nrc-number" type="text" class="form-control" name="nrc_number" value="{{$_GET['nrc']}}" required>
                         </div>
                     </div>
 
@@ -61,7 +61,7 @@
                         <label for="date_of_birth" class="col-md-4 control-label">Date of Birth</label>
 
                         <div class="col-md-6">
-                            <input id="date-of-birth" type="date" class="form-control" name="date_of_birth" placeholder="2000-1-3(year-month-date)" required>
+                            <input id="date-of-birth" type="date" class="form-control" name="date_of_birth" value="{{$_GET['dob']}}" required>
                         </div>
                     </div>
 
@@ -69,7 +69,7 @@
                         <label for="phone_number" class="col-md-4 control-label">Phone Number</label>
 
                         <div class="col-md-6">
-                            <input id="phone-number" type="text" class="form-control" name="phone_number" required>
+                            <input id="phone-number" type="text" class="form-control" name="phone_number" value="{{$_GET['phone']}}" required>
                         </div>
                     </div>
 
@@ -77,7 +77,7 @@
                         <label for="address" class="col-md-4 control-label">Address</label>
 
                         <div class="col-md-6">
-                            <input id="address" type="text" class="form-control" name="address" required>
+                            <input id="address" type="text" class="form-control" name="address" value="{{$_GET['address']}}" required>
                         </div>
                     </div>
 
