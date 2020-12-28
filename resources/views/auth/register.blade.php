@@ -61,7 +61,7 @@
                         <label for="date_of_birth" class="col-md-4 control-label">Date of Birth</label>
 
                         <div class="col-md-6">
-                            <input id="date-of-birth" type="date" class="form-control" name="date_of_birth" placeholder="2000-1-3(year-month-date)" required>
+                            <input id="date-of-birth" type="text" class="form-control" name="date_of_birth" placeholder="2000-1-3(year-month-date)" required>
                         </div>
                     </div>
 
