@@ -23,6 +23,7 @@ $this->post('login', 'Auth\LoginController@login')->name('auth.login');
 $this->post('logout', 'Auth\LoginController@logout')->name('auth.logout');
 
 // Registration Routes...
+$this->get('register-bot', 'Auth\RegisterController@botRegister')->name('auth.register-bot');
 $this->get('register', 'Auth\RegisterController@showRegistrationForm')->name('auth.register');
 $this->post('register', 'Auth\RegisterController@register')->name('auth.register');
 

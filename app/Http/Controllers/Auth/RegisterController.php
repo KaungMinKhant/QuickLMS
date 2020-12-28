@@ -100,4 +100,9 @@ class RegisterController extends Controller
             ?: redirect($request->input('redirect_url'));
     }
 
+    public function botRegister()
+    {
+        return view('register-bot');
+    }
+
 }
