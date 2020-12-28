@@ -131,20 +131,10 @@
                     @endcan
 
 
-                    <th>@lang('Stud@can('course_create')
-<p>
-    <a href="{{ route('certificate.create') }}" class="btn btn-success">@lang('global.app_add_new')</a>
-
-</p>
-@endcanent Name')</th>
+                    <th>@lang('Student Name')</th>
                     <th>@lang('Course Name')</th>
                     <th>@lang('Certificate')</th>
-@can('course_create')
-<p>
-    <a href="{{ route('certificate.create') }}" class="btn btn-success">@lang('global.app_add_new')</a>
 
-</p>
-@endcan
                     @if( request('show_deleted') == 1 )
                     <th>&nbsp;</th>
                     @else
