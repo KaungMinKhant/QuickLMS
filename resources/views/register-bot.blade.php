@@ -61,7 +61,7 @@
                         <label for="date_of_birth" class="col-md-4 control-label">Date of Birth</label>
 
                         <div class="col-md-6">
-                            <input id="date-of-birth" type="date" class="form-control" name="date_of_birth" value="{{$_GET['dob']}}" required>
+                            <input id="date-of-birth" type="text" class="form-control" name="date_of_birth" value="{{$_GET['dob']}}" required>
                         </div>
                     </div>
 
